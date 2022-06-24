@@ -12,7 +12,7 @@ void create()
   std::unique_ptr<TFile> myFile=std::make_unique<TFile>("MyTreeFile.root", "RECREATE"); 
   //auto tree=std::make_unique<TTree>("tree","MyTree");  
   TTree *tree = new TTree("MyTree","MyTree");
-
+  
 //declare float, TBranch  
   float var;
   tree->Branch("BranchZero", &var);
@@ -61,23 +61,26 @@ void read()
   std::cout<<"Before for-loop is good"<<std::endl;
   std::cout<<"Total number of entries in the tree "<<tree->GetEntries()<<std::endl;
 
+//Create canvas, histogram to visualize results later
+TCanvas *cnvs = new TCanvas("cnvs","Tree Display",10,10,800,500);
+  
+TH1F *h1 = new TH1F("h1","Tree Entries",100,-2,2);  
 
-//create histogram to graph TTree entries
-  TH1D *hist = new TH1D("hist","Random Numbers",1000,-2,2);
- 
-//telling tree to get entries from memories, then print  
+//telling tree to get entries from memories, 
+//then fill histogram and print  
   for(int i=0;i<tree->GetEntries();i++) {
     tree->LoadTree(i);
     bvar->GetEntry(i);
-    //fill histogram
-    hist->Fill(var);
+    h1->Fill(var);
     std::cout<<var<<std::endl;
   }
   
   std::cout<<"read() is good"<<std::endl;
 
   //draw histogram
-  hist->Draw();
+  cnvs->Update();
+  h1->Draw();
+ 
 }
 
 void MakeTree()
