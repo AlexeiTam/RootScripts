@@ -37,7 +37,7 @@ void read()
 //Create canvas, histogram to visualize results later
 TCanvas *cnvs = new TCanvas("cnvs","Tree Display",10,10,800,500);
   
-TH1F *h1 = new TH1F("h1","Tree Entries",100,-2,2);  
+TH1F *h1 = new TH1F("h1","Tree Entries",1000,-2,2);  
   
 //opening file  
   std::unique_ptr<TFile> myFile=std::make_unique<TFile>("MyTreeFile.root", "READ");
