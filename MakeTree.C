@@ -8,18 +8,22 @@
 
 void create()
 {
+//Create file and tree    
   std::unique_ptr<TFile> myFile=std::make_unique<TFile>("MyTreeFile.root", "RECREATE"); 
   //auto tree=std::make_unique<TTree>("tree","MyTree");  
   TTree *tree = new TTree("MyTree","MyTree");
 
+//declare float, TBranch  
   float var;
   tree->Branch("BranchZero", &var);
   
+//filling tree with random numbers  
   for(int i=0;i<100;i++) {
     var = gRandom->Rndm();
     tree->Fill();
   }
-  
+
+//giving tree a header, saving and closing file  
   tree->Write();
   
   myFile->Save();
@@ -30,6 +34,7 @@ void create()
 
 void read() 
 {
+//opening file  
   std::unique_ptr<TFile> myFile=std::make_unique<TFile>("MyTreeFile.root", "READ");
   if(!myFile) {
     std::cout << "Cannot open the file!" << std::endl;
@@ -37,7 +42,8 @@ void read()
   }
   
   std::cout<<"File Opening is good"<<std::endl;
-  
+
+//giving pointers to float entries, TBranch in TTree  
   float var;
   TBranch *bvar=0;
   //std::unique_ptr<TTree> tree(myFile->Get<TTree>("MyTree"));
@@ -59,7 +65,7 @@ void read()
 //create histogram to graph TTree entries
   TH1D *hist = new TH1D("hist","Random Numbers",1000,-2,2);
  
-  
+//telling tree to get entries from memories, then print  
   for(int i=0;i<tree->GetEntries();i++) {
     tree->LoadTree(i);
     bvar->GetEntry(i);
