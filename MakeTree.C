@@ -56,17 +56,22 @@ void read()
   std::cout<<"Total number of entries in the tree "<<tree->GetEntries()<<std::endl;
 
 
-
+//create histogram to graph TTree entries
+  TH1D *hist = new TH1D("hist","Random Numbers",1000,-2,2);
  
-//print tree entries, fill hist  
+  
   for(int i=0;i<tree->GetEntries();i++) {
     tree->LoadTree(i);
     bvar->GetEntry(i);
+    //fill histogram
+    hist->Fill(var);
     std::cout<<var<<std::endl;
   }
   
   std::cout<<"read() is good"<<std::endl;
 
+  //draw histogram
+  hist->Draw();
 }
 
 void MakeTree3()
