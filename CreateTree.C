@@ -51,7 +51,7 @@ void read() {
 	
 	//opening file and giving it pointer "myFile"
 	
-	std::unique_ptr<TFile> myFile = std::make_unique<TTree>("BigTreeFile.root", "READ");
+	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("BigTreeFile.root", "READ");
 			if(!myFile) { 
 			std::cout << "File Open Failed!" << std::endl;
 			return;
