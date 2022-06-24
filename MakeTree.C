@@ -74,7 +74,7 @@ void read()
   hist->Draw();
 }
 
-void MakeTree3()
+void MakeTree()
 {
   std::cout << "Starting..." << std::endl;
   create();
