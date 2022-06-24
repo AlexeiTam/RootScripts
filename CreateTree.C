@@ -2,7 +2,7 @@ void create() {
 
 	//create file and tree
 	
-	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("BigTreeFile.root", "RECREATE")
+	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("BigTreeFile.root", "RECREATE");
 	TTree* tree = new TTree("myTree","myTree");
 	
 	//initializing tree branches, and float arrays to hold leaves
