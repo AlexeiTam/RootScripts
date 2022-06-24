@@ -34,6 +34,11 @@ void create()
 
 void read() 
 {
+//Create canvas, histogram to visualize results later
+TCanvas *cnvs = new TCanvas("cnvs","Tree Display",10,10,800,500);
+  
+TH1F *h1 = new TH1F("h1","Tree Entries",100,-2,2);  
+  
 //opening file  
   std::unique_ptr<TFile> myFile=std::make_unique<TFile>("MyTreeFile.root", "READ");
   if(!myFile) {
@@ -60,11 +65,6 @@ void read()
   
   std::cout<<"Before for-loop is good"<<std::endl;
   std::cout<<"Total number of entries in the tree "<<tree->GetEntries()<<std::endl;
-
-//Create canvas, histogram to visualize results later
-TCanvas *cnvs = new TCanvas("cnvs","Tree Display",10,10,800,500);
-  
-TH1F *h1 = new TH1F("h1","Tree Entries",100,-2,2);  
 
 //telling tree to get entries from memories, 
 //then fill histogram and print  
