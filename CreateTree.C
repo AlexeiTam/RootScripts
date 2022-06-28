@@ -1,3 +1,12 @@
+#include <iostream>
+#include <ostream>
+#include <memory>
+
+#include "TFile.h"
+#include "TTree.h"
+#include "TBranch.h"
+#include "TRandom.h"
+
 void create() {
 
 	//create file and tree
