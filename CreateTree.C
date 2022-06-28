@@ -132,3 +132,9 @@ void CreateTree() {
 	create();
 	read();
 }
+
+int main() { 
+  CreateTree();
+  return 0;
+}
+
