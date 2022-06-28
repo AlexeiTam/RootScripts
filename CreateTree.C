@@ -133,7 +133,15 @@ void CreateTree() {
 	read();
 }
 
-  int main() {
+<<<<<<< HEAD
+int main() {
   CreateTree();
   return 0; 
 }
+=======
+int main() { 
+  CreateTree();
+  return 0;
+}
+
+>>>>>>> 35c8458c08e4c81fb4a3d6c64eed31f7c6610708
