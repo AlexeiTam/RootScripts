@@ -8,6 +8,7 @@
 #include "TRandom.h"
 #include "TH1.h"
 #include "TStyle.h"
+#include "TCanvas.h"
 
 void create() {
 
