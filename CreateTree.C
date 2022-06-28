@@ -133,7 +133,7 @@ void CreateTree() {
 	read();
 }
 
-int main() {
+  int main() {
   CreateTree();
   return 0; 
 }
