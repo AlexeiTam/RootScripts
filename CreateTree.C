@@ -6,6 +6,8 @@
 #include "TTree.h"
 #include "TBranch.h"
 #include "TRandom.h"
+#include "TH1.h"
+#include "TStyle.h"
 
 void create() {
 
