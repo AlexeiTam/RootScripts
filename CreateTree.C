@@ -128,6 +128,9 @@ void read() {
 	
 	cnvs->cd(5);
 	h4->Draw();
+
+	cnvs->SaveAs("FirstTreeCanvas.pdf");
+
 }
 
 void CreateTree() {
