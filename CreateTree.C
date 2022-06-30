@@ -129,6 +129,11 @@ void read() {
 	cnvs->cd(5);
 	h4->Draw();
 
+
+	myFile->Save();
+	myFile->Close();
+
+	cnvs->Update();
 	cnvs->SaveAs("FirstTreeCanvas.pdf");
 
 }
