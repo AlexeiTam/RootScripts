@@ -20,12 +20,17 @@ void create() {
 	
 	//initializing tree branches, and float arrays to hold leaves
 	const Int_t N = 1000;
-	float var[5];
+	float var[10];
 	tree->Branch("branch0", &var[0]);
 	tree->Branch("branch1", &var[1]);
 	tree->Branch("branch2", &var[2]);
 	tree->Branch("branch3", &var[3]);
 	tree->Branch("branch4", &var[4]);
+	tree->Branch("branch5", &var[5]);
+	tree->Branch("branch6", &var[6]);
+	tree->Branch("branch7", &var[7]);
+	tree->Branch("branch8", &var[8]);
+	tree->Branch("branch9", &var[9]);
 
 	//generating random numbers and filling trees
 	for(int i = 0; i < N ; i++) {
@@ -35,6 +40,11 @@ void create() {
 		var[2] = gRandom->Gaus(0,1);
 		var[3] = gRandom->Exp(-0.6);
 		var[4] = gRandom->Landau(0.25,1.1);
+		var[5] = 0;
+		var[6] = 0;
+		var[7] = 0;
+		var[8] = 0;
+		var[9] = 0;
 		
 		tree->Fill();
 	}
