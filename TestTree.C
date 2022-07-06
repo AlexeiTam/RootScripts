@@ -25,7 +25,8 @@ void create() {
 	float var[5];
 	float test;
 	short svar[2];
-	double dvar[2];
+	double dvar;
+	double dvarr;
 	char cvar[2];
 	
 	const Int_t Ns = (gRandom->Rndm())*1000000;
@@ -40,8 +41,8 @@ void create() {
 	
 	tree->Branch("svarBranch0", &svar[0]);
 	tree->Branch("svarBranch1", &svar[1]);
-	tree->Branch("dvarBranch0", &dvar[0]);
-	tree->Branch("dvarBranch1", &dvar[1]);
+	tree->Branch("dvarBranch0", &dvar);
+	tree->Branch("dvarBranch1", &dvarr);
 	tree->Branch("cvarBranch0", &cvar[0]);
 	tree->Branch("cvarBranch1", &cvar[1]);
 	
@@ -57,7 +58,7 @@ void create() {
 		
 		svar[0] = 4;
 		cvar[0] = 'a';
-		dvar[0] = gRandom->Rndm();
+		dvar = gRandom->Rndm();
 		
 		tree->Fill();
 	}
@@ -74,14 +75,14 @@ void create() {
 	//filling dvar Branch2
 	
 		//initial dvar[1]
-		dvar[1] = 25;
+		dvarr = 25;
 	
 	for(int i = 0; i < Nd; i++) {
-		if(dvar[1]%2 ==0) {
-			dvar[1] = dvar[1] / 2;
+		if(dvarr%2 ==0) {
+			dvarr = dvarr / 2;
 		}
 		else {
-			dvar[1] = 3*dvar[1] + 1;
+			dvarr = 3*dvarr + 1;
 		}
 		
 		tree->Fill();
