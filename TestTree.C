@@ -13,18 +13,30 @@
 void create() {
 
 	//create file and tree
+	std::cout << "Testing: 5 more branches with doubles, chars, shorts, instead of floats, then scanning" << std::endl;
 	
-	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("BigTreeFile.root", "RECREATE");
+	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("TestingTreeFile.root", "RECREATE");
 	TTree* tree = new TTree("myTree","myTree");
 	
-	//initializing tree branches, and float arrays to hold leaves
+	//initializing tree branches, and variables for branches to hold
+	
 	const Int_t N = 1000;
 	float var[5];
+	float test;
+	short svar;
+	double dvar;
+	char cvar;
+	
 	tree->Branch("branch0", &var[0]);
 	tree->Branch("branch1", &var[1]);
 	tree->Branch("branch2", &var[2]);
 	tree->Branch("branch3", &var[3]);
 	tree->Branch("branch4", &var[4]);
+	
+	tree->Branch("svarBranch", &svar);
+	tree->Branch("dvarBranch", &dvar);
+	tree->Branch("cvarBranch", &cvar);
+	
 
 	//generating random numbers and filling trees
 	for(int i = 0; i < N ; i++) {
@@ -35,11 +47,17 @@ void create() {
 		var[3] = gRandom->Exp(-0.6);
 		var[4] = gRandom->Landau(0.25,1.1);
 		
+		svar = 4;
+		cvar = a;
+		double dvar = gRandom->Rndm();
+		
 		tree->Fill();
 	}
 
 	//writing tree header and saving file
 	tree->Write();
+	
+	tree->Print();
 	myFile->Save();
 	myFile->Close();
 	
@@ -141,12 +159,12 @@ void read() {
 void CreateTree() {
 	//creates a tree with five branches, fills each with 1000 random numbers of different distributions
 	create();
-	read();
+	//read();
 }
 
 
-int main() {
-  CreateTree();
-  return 0; 
-}
+//int main() {
+  //CreateTree();
+  //return 0; 
+//}
 
