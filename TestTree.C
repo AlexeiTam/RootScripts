@@ -48,7 +48,7 @@ void create() {
 		var[4] = gRandom->Landau(0.25,1.1);
 		
 		svar = 4;
-		cvar = a;
+		cvar = 'a';
 		double dvar = gRandom->Rndm();
 		
 		tree->Fill();
