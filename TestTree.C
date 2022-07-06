@@ -25,8 +25,8 @@ void create() {
 	float var[5];
 	float test;
 	short svar[2];
-	double dvar;
-	double dvarr;
+	int64_t dvar;
+	int64_t dvarr;
 	char cvar[2];
 	
 	const Int_t Ns = (gRandom->Rndm())*1000000;
