@@ -14,18 +14,23 @@ void create() {
 
 	//create file and tree
 	std::cout << "Testing: 5 more branches with doubles, chars, shorts, instead of floats, then scanning" << std::endl;
+	std::cout << "Testing: more branches, more entries (E3 -> E6), random numbers of entries" << std::endl;
 	
 	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("TestingTreeFile.root", "RECREATE");
 	TTree* tree = new TTree("myTree","myTree");
 	
 	//initializing tree branches, and variables for branches to hold
 	
-	const Int_t N = 1000;
+	const Int_t N = 1000000;
 	float var[5];
 	float test;
-	short svar;
-	double dvar;
-	char cvar;
+	short svar[2];
+	double dvar[2];
+	char cvar[2];
+	
+	const Int_t Ns = (gRandom->Rndm())*1000000;
+	const Int_t Nd = (gRandom->Rndm())*1000000;
+	const Int_t Nc = (gRandom->Rndm())*1000000;
 	
 	tree->Branch("branch0", &var[0]);
 	tree->Branch("branch1", &var[1]);
@@ -33,12 +38,15 @@ void create() {
 	tree->Branch("branch3", &var[3]);
 	tree->Branch("branch4", &var[4]);
 	
-	tree->Branch("svarBranch", &svar);
-	tree->Branch("dvarBranch", &dvar);
-	tree->Branch("cvarBranch", &cvar);
+	tree->Branch("svarBranch0", &svar[0]);
+	tree->Branch("svarBranch1", &svar[1]);
+	tree->Branch("dvarBranch0", &dvar[0]);
+	tree->Branch("dvarBranch1", &dvar[1]);
+	tree->Branch("cvarBranch0", &cvar[0]);
+	tree->Branch("cvarBranch1", &cvar[1]);
 	
 
-	//generating random numbers and filling trees
+	//generating random numbers and filling branches 0-4
 	for(int i = 0; i < N ; i++) {
 	
 		var[0] = i;
@@ -47,11 +55,47 @@ void create() {
 		var[3] = gRandom->Exp(-0.6);
 		var[4] = gRandom->Landau(0.25,1.1);
 		
-		svar = 4;
-		cvar = 'a';
-		double dvar = gRandom->Rndm();
+		svar[0] = 4;
+		cvar[0] = 'a';
+		double dvar[0] = gRandom->Rndm();
 		
 		tree->Fill();
+	}
+	
+	//filling svar Branch2
+	
+	for(int i = 0; i < N ; i++) {
+	
+		svar[1] = 1;
+		
+		tree->Fill();
+	}
+	
+	//filling dvar Branch2
+	
+		//initial dvar[1]
+		dvar[1] = 25;
+	
+	for(int i = 0; i < Nd; i++) {
+		if(dvar[1] % 2 ==0) {
+			dvar[1] = dvar[1] / 2;
+		}
+		else {
+			dvar[1] = 3*dvar[1] + 1;
+		}
+		
+		tree->Fill();
+	}
+	//filling cvar Branch2
+	
+	for(int i = 0; i < Nc; i++) {
+		if(i % 2 ==0) {
+		cvar[1] = 'b';
+		}
+		else {
+		cvar[1] = 'c';
+		}
+		
 	}
 
 	//writing tree header and saving file
