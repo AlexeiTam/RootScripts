@@ -78,7 +78,7 @@ void create() {
 		dvarr = 25;
 	
 	for(int i = 0; i < Nd; i++) {
-		if(dvarr%2 ==0) {
+		if(dvarr % 2 == 0) {
 			dvarr = dvarr / 2;
 		}
 		else {
