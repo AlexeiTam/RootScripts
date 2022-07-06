@@ -156,7 +156,7 @@ void read() {
 
 }
 
-void CreateTree() {
+void TestTree() {
 	//creates a tree with five branches, fills each with 1000 random numbers of different distributions
 	create();
 	//read();
