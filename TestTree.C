@@ -57,7 +57,7 @@ void create() {
 		
 		svar[0] = 4;
 		cvar[0] = 'a';
-		double dvar[0] = gRandom->Rndm();
+		dvar[0] = gRandom->Rndm();
 		
 		tree->Fill();
 	}
@@ -77,7 +77,7 @@ void create() {
 		dvar[1] = 25;
 	
 	for(int i = 0; i < Nd; i++) {
-		if(dvar[1] % 2 ==0) {
+		if(dvar[1]%2 ==0) {
 			dvar[1] = dvar[1] / 2;
 		}
 		else {
