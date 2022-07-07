@@ -35,11 +35,11 @@ void create() {
 		rand[i] = gRandom->Rndm();	
 	}
 	
-	const Int_t Ns = (rand[1])*1000000;
+	const Int_t Ns = (rand[0])*1000000;
 	
-	const Int_t Nd = (rand[2])*1000000;
+	const Int_t Nd = (rand[1])*1000000;
 	
-	const Int_t Nc = (rand[3])*1000000;
+	const Int_t Nc = (rand[2])*1000000;
 	
 	//testing # of entries, print
 	std::cout << "Ns =" << Ns << "..." << "Nd =" << Nd << "..." << "Nc =" << Nc << std::endl;
