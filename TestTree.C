@@ -68,17 +68,15 @@ void create() {
 		var[3] = gRandom->Exp(-0.6);
 		var[4] = gRandom->Landau(0.25,1.1);
 		
-		svar[0] = 4;
-		cvar[0] = 'a';
-		dvar = gRandom->Rndm();
 		
 		tree->Fill();
 	}
 	
 	//filling svar Branch2
 	
-	for(int i = 0; i < N ; i++) {
-	
+	for(int i = 0; i < Ns ; i++) {
+		
+		svar[0] = 4;
 		svar[1] = 1;
 		
 		tree->Fill();
@@ -90,6 +88,9 @@ void create() {
 		dvarr = 25;
 	
 	for(int i = 0; i < Nd; i++) {
+		
+		dvar = gRandom->Rndm();
+		
 		if(dvarr % 2 == 0) {
 			dvarr = dvarr / 2;
 		}
@@ -102,6 +103,9 @@ void create() {
 	//filling cvar Branch2
 	
 	for(int i = 0; i < Nc; i++) {
+		
+		cvar[0] = 'a';
+		
 		if(i % 2 ==0) {
 		cvar[1] = 'b';
 		}
@@ -109,6 +113,7 @@ void create() {
 		cvar[1] = 'c';
 		}
 		
+		tree->Fill();
 	}
 
 	//writing tree header and saving file
