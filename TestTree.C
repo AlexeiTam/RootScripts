@@ -119,7 +119,10 @@ void create() {
 	//writing tree header and saving file
 	tree->Write();
 	
+	//checking tree
 	tree->Print();
+	tree->Scan("dvarbranch1");
+	
 	myFile->Save();
 	myFile->Close();
 	
