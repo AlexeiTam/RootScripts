@@ -91,8 +91,8 @@ void create() {
 		
 		dvar = gRandom->Rndm();
 		
-		if(dvarr % 2 == 0) {
-			dvarr = dvarr / 2;
+		if(dvarr%2 == 0) {
+			dvarr = dvarr/2;
 		}
 		else {
 			dvarr = 3*dvarr + 1;
