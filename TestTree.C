@@ -29,9 +29,21 @@ void create() {
 	int64_t dvarr;
 	char cvar[2];
 	
-	const Int_t Ns = (gRandom->Rndm())*1000000;
-	const Int_t Nd = (gRandom->Rndm())*1000000;
-	const Int_t Nc = (gRandom->Rndm())*1000000;
+	//setting # of entries
+	float rand[3];
+	for(int i = 0; i < 3; i++) {
+		rand[i] = gRandom->Rndm();	
+	}
+	
+	const Int_t Ns = (rand[1])*1000000;
+	
+	const Int_t Nd = (rand[2])*1000000;
+	
+	const Int_t Nc = (rand[3])*1000000;
+	
+	//testing # of entries, print
+	std::cout << "Ns =" << Ns << "..." << "Nd =" << Nd << "..." << "Nc =" << Nc << std::endl;
+	
 	
 	tree->Branch("branch0", &var[0]);
 	tree->Branch("branch1", &var[1]);
