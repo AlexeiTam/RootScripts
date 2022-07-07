@@ -121,7 +121,7 @@ void create() {
 	
 	//checking tree
 	tree->Print();
-	tree->Scan("dvarBranch1");
+	tree->Scan("dvarBranch0:dvarBranch1");
 	
 	myFile->Save();
 	myFile->Close();
