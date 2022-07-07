@@ -89,14 +89,8 @@ void create() {
 	
 	for(int i = 0; i < Nd; i++) {
 		
-		dvar = (gRandom->Rndm())*10;
-		
-		if(dvarr%2 == 0) {
-			dvarr = dvarr/2;
-		}
-		else {
-			dvarr = 3*dvarr + 1;
-		}
+		dvar = 25*i +2;
+		dvarr = i*i +4;
 		
 		tree->Fill();
 	}
