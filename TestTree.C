@@ -89,7 +89,7 @@ void create() {
 	
 	for(int i = 0; i < Nd; i++) {
 		
-		dvar = gRandom->Rndm();
+		dvar = (gRandom->Rndm())*10;
 		
 		if(dvarr%2 == 0) {
 			dvarr = dvarr/2;
