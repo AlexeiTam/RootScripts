@@ -29,7 +29,7 @@ void VectorTree() {
   std::cout << "initializing variables and vector" << std::endl;
   
   const Int_t NEvents = 1000000; // N = 1,000,000
-  const Int_t NEntries = 15;
+  Int_t NEntries;
   
       //vectors
       std::vector<float> vf;
