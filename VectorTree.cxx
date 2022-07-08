@@ -81,7 +81,10 @@ void VectorTree() {
     
   }
   
-  
+  //saving tree and file
+  tree->Write();
+  myFile->Save();
+  myFile->Close();
   
   
 
