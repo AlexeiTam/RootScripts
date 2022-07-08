@@ -51,10 +51,14 @@ void VectorTree() {
   tree->Branch("IntBranch", &vi);
   tree->Branch("DoubleBranch", &vd);
   tree->Branch("ShortBranch", &vs);
+  tree->Branch("EntBranch", &NEntries);
   
   //EVENTS LOOP
   
   for (int j = 0; j < NEvents; j++) {
+    
+    //randomizing number of entries
+    int NEntries = (gRandom->Rndm())*15;
    
     //clearing events
     vf.clear();
