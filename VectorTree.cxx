@@ -28,12 +28,21 @@ void VectorTree() {
   //INITIALIZING VARIABLES
   std::cout << "initializing variables and vector" << std::endl;
   
-  const Int_t N = 1000000; // N = 1,000,000
+  const Int_t NEvents = 1000000; // N = 1,000,000
+  const Int_t NEntries = 15;
   
-  std::vector<float> vf;
-  std::vector<int> vi;
-  std::vector<double> vd;
-  std::vector<short> vs;
+      //vectors
+      std::vector<float> vf;
+      std::vector<int> vi;
+      std::vector<double> vd;
+      std::vector<short> vs;
+  
+      //variables
+      float f;
+      int i;
+      double d;
+      short s;
+  
   
   //INITIALIZING BRANCHES
   std::cout << "creating branches" << std::endl;
@@ -42,6 +51,35 @@ void VectorTree() {
   tree->Branch("IntBranch", &vi);
   tree->Branch("DoubleBranch", &vd);
   tree->Branch("ShortBranch", &vs);
+  
+  //EVENTS LOOP
+  
+  for (int j = 0; j < NEvents; j++) {
+   
+    //clearing events
+    vf.clear();
+    vi.clear();
+    vd.clear();
+    vs.clear();
+          
+        //generating vector elements, filling vectors
+        for(int m = 0; m < NEntries; m++) {
+        
+          f = gRandom->Rndm();
+          i = 3*m + 4;
+          d = m*m + 1;
+          s = m;
+          
+          vf.emplace_back(f);
+          vi.emplace_back(i);
+          vd.emplace_back(d);
+          vs.emplace_back(s);
+          
+        }
+        
+    tree->Fill();
+    
+  }
   
   
   
