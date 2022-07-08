@@ -83,6 +83,10 @@ void VectorTree() {
   
   //saving tree and file
   tree->Write();
+  
+    //let's look in the tree:
+    tree->Scan();
+  
   myFile->Save();
   myFile->Close();
   
