@@ -20,7 +20,7 @@ void ExpandTree() {
   //CREATING FILE AND TREE
   std::cout << "creating file and tree..." << std::endl;
   
-  std::unique_ptr<TFile> myFile = std::make_unique<TFile>("VectorTreeFile.root", "RECREATE");
+  std::unique_ptr<TFile> myFile = std::make_unique<TFile>("ExpandTreeFile.root", "RECREATE");
   TTree *tree = new TTree("myTree","myTree");
   
   if(!myFile) {
@@ -38,12 +38,14 @@ void ExpandTree() {
   
       //vectors
       std::vector<float> vf;
+      std::vector<float> vFront;
       std::vector<int> vi;
       std::vector<double> vd;
       std::vector<short> vs;
   
       //variables
       float f;
+      float fvar;
       int i;
       double d;
       short s;
@@ -56,6 +58,7 @@ void ExpandTree() {
   tree->Branch("IntBranch", &vi);
   tree->Branch("DoubleBranch", &vd);
   tree->Branch("ShortBranch", &vs);
+  tree->Branch("FrontBranch", &fvar);
   
   
   //EVENTS LOOP
@@ -81,6 +84,9 @@ void ExpandTree() {
         for(int m = 0; m < NEntriesF; m++) {
           f = gRandom->Rndm();
           vf.emplace_back(f);
+          
+          fvar = m;
+          vFront.emplace_front(fvar);
         }
     
         //generating vi
