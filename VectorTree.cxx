@@ -63,9 +63,9 @@ void VectorTree() {
     
     //randomizing number of entries
     int NEntriesF = (gRandom->Rndm())*15;
-    int NEntriesI = (gRandom-Rndm())*15;
-    int NEntriesD = (gRandom-Rndm())*15;
-    int NEntriesS = (gRandom-Rndm())*15;
+    int NEntriesI = (gRandom->Rndm())*15;
+    int NEntriesD = (gRandom->Rndm())*15;
+    int NEntriesS = (gRandom->Rndm())*15;
    
     //clearing events
     vf.clear();
