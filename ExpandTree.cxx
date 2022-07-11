@@ -56,8 +56,6 @@ void ExpandTree() {
   tree->Branch("IntBranch", &vi);
   tree->Branch("DoubleBranch", &vd);
   tree->Branch("ShortBranch", &vs);
-  tree->Branch("FrontBranch", &fvar);
-  
   
   //EVENTS LOOP
   std::cout << "generating events..." << std::endl;
