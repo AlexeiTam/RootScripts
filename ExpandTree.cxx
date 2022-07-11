@@ -92,10 +92,10 @@ void ExpandTree() {
     tree->Branch("D3", &vd3);
     
     //shorts
-    tree->Branch("D0", &vd0);
-    tree->Branch("D1", &vd1);
-    tree->Branch("D2", &vd2);
-    tree->Branch("D3", &vd3);
+    tree->Branch("S0", &vs0);
+    tree->Branch("S1", &vs1);
+    tree->Branch("S2", &vs2);
+    tree->Branch("S3", &vs3);
   
   //EVENTS LOOP
   std::cout << "generating events..." << std::endl;
