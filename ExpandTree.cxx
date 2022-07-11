@@ -11,8 +11,10 @@
 #include "TStyle.h"
 #include "TCanvas.h"
 
-void VectorTree() {
-  
+void ExpandTree() {
+
+  //Goal: create vectors of diff. variables, then fill Branches with them
+
   std::cout << "Initializing..." << std::endl;
   
   //CREATING FILE AND TREE
