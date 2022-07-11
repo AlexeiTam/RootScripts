@@ -135,7 +135,7 @@ void ExpandTree() {
         for(int m = 0; m < NEntriesF; m++) {
           f0 = gRandom->Rndm();
           f1 = 100*(gRandom->Rndm());
-          f2 = 1500*(gRandom-Rndm());
+          f2 = 1500*(gRandom->Rndm());
           f3 = (gRandom->Rndm())*(gRandom->Rndm());
           
           vf0.emplace_back(f0);
@@ -160,7 +160,7 @@ void ExpandTree() {
         //generating vd's
         for(int b = 0; b < NEntriesD; b++) {
           d0 = j*j + b*(gRandom->Rndm()) + 5*b*j;
-          d1 = (gRandom-Rndm())*(gRandom->Landau(2.22,5.9));
+          d1 = (gRandom->Rndm())*(gRandom->Landau(2.22,5.9));
           d2 = b*b*(gRandom->Landau((j*j*b*0.0000001),5.5)) + (sqrt(15*(gRandom->Gaus(j,33))));
           d3 = 17000*(gRandom->Rndm());
           
@@ -175,7 +175,7 @@ void ExpandTree() {
           s0 = a*j + 1500*(gRandom->Rndm());
           s1 = j*j*(gRandom->Gaus(23,j));
           s2 = j*(gRandom->Landau(0.1111,7.7));
-          s3 = 145000*(gRandom->Rannor(s0,s1));
+          s3 = 145000*(gRandom->Landau(s0,s1));
           
           vs0.emplace_back(s0);
           vs1.emplace_back(s1);
