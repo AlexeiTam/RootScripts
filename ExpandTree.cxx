@@ -85,19 +85,19 @@ void ExpandTree() {
     
         //generating vi
         for(int n = 0; n < NEntriesI; n++) {
-          i = 3*n + 4;
+          i = 3*j + 4*(gRandom->Rndm());
           vi.emplace_back(i);
         }
     
         //generating vd
         for(int b = 0; b < NEntriesD; b++) {
-          d = b*b + 1;
+          d = j*j + b*(gRandom->Rndm()) + 5*b*j;
           vd.emplace_back(d);
         }
     
         //generating vs
         for(int a = 0; a < NEntriesS; a++) {
-          s = a;
+          s = a*j + 1500*(gRandom->Rndm());
           vs.emplace_back(s);
         }
     
