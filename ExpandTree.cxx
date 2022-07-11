@@ -38,21 +38,19 @@ void ExpandTree() {
   
       //vectors
       std::vector<float> vf;
-      std::vector<float> vFront;
       std::vector<int> vi;
       std::vector<double> vd;
       std::vector<short> vs;
   
       //variables
       float f;
-      float fvar;
       int i;
       double d;
       short s;
   
   
   //INITIALIZING BRANCHES
-  std::cout << "creating branches" << std::endl;
+  std::cout << "creating branches..." << std::endl;
   
   tree->Branch("FloatBranch", &vf);
   tree->Branch("IntBranch", &vi);
@@ -84,14 +82,11 @@ void ExpandTree() {
         for(int m = 0; m < NEntriesF; m++) {
           f = gRandom->Rndm();
           vf.emplace_back(f);
-          
-          fvar = m;
-          vFront.emplace_front(fvar);
         }
     
         //generating vi
         for(int n = 0; n < NEntriesI; n++) {
-          i = 3*j + 4*(gRandom->Rndm());
+          i = n*n*j*j + j*(gRandom->Rndm());
           vi.emplace_back(i);
         }
     
