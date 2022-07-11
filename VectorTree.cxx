@@ -54,7 +54,7 @@ void VectorTree() {
   tree->Branch("IntBranch", &vi);
   tree->Branch("DoubleBranch", &vd);
   tree->Branch("ShortBranch", &vs);
-  tree->Branch("EntBranch", &NEntries);
+  
   
   //EVENTS LOOP
   std::cout << "generating events..." << std::endl;
@@ -109,6 +109,7 @@ void VectorTree() {
   
     //let's look in the tree:
     tree->Scan();
+    tree->Print();
   
   myFile->Save();
   myFile->Close();
