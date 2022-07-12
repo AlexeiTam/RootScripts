@@ -5,7 +5,7 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
  
    TString opt( option );
    opt.ToLower();
-   Bool_t pDebug = opt.Contains("d");
+   Bool_t pDebug = opt.Contains("d"); //?? What's "d"?
    TObjArray *leaves = this->GetListOfLeaves();
    Int_t nleaves = leaves->GetEntries();
    Double_t treeSize = (Double_t)this->GetTotBytes();
@@ -16,7 +16,7 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
    }
    Double_t aveSize = treeSize/nleaves;
    UInt_t bmin = 512;
-   UInt_t bmax = 256000;
+   UInt_t bmax = 256000;//?? Is this the hardcoded bmax?
    Double_t memFactor = 1;
    Int_t i, oldMemsize,newMemsize,oldBaskets,newBaskets;
    i = oldMemsize = newMemsize = oldBaskets = newBaskets = 0;
@@ -29,7 +29,7 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
       newMemsize = 0;  //to count size of baskets in memory with new buffer size
       oldBaskets = 0;  //to count number of baskets with old buffer size
       newBaskets = 0;  //to count number of baskets with new buffer size
-      for (i=0;i<nleaves;i++) {
+      for (i=0;i<nleaves;i++) {	//!! Comments on this loop?
          TLeaf *leaf = (TLeaf*)leaves->At(i);
          TBranch *branch = leaf->GetBranch();
          Double_t totBytes = (Double_t)branch->GetTotBytes();
@@ -39,7 +39,7 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
             // There is no data, so let's make a guess ...
             sizeOfOneEntry = aveSize;
          } else {
-            sizeOfOneEntry = 1+(UInt_t)(totBytes / (Double_t)branch->GetEntries());
+            sizeOfOneEntry = 1+(UInt_t)(totBytes / (Double_t)branch->GetEntries());	//?? Huh?
          }
          Int_t oldBsize = branch->GetBasketSize();
          oldMemsize += oldBsize;
@@ -49,6 +49,7 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
             newBaskets += 1+Int_t(totBytes/oldBsize);
             continue;
          }
+	//!! Buffer size rescaling comments?
          Double_t bsize = oldBsize*idealFactor*memFactor; //bsize can be very large !
          if (bsize < 0) bsize = bmax;
          if (bsize > bmax) bsize = bmax;
