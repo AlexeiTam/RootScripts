@@ -20,7 +20,7 @@ void create() {
 	TTree* tree2 = new TTree("AutoFlushedTree","AutoFlushed Tree");
 	
 	//normal: Long64_t autof = -30000000
-	tree2->SetAutoFlush(Long64_t newAutoF = -25000000);
+	tree2->SetAutoFlush(-25000000);
 	
 	//initializing tree branches, and float arrays to hold leaves
 	const Int_t N = 1000;
@@ -164,7 +164,7 @@ void AutoFlushTest() {
 
 
 int main() {
-  CreateTree();
+  AutoFlushTest();
   return 0; 
 }
 
