@@ -17,6 +17,8 @@ void AutoFlushTest(Long64_t NewAutoF = -30000000) {
 
 	//create file and tree
 	
+std::cout << "writing file and tree..." << std::endl;
+	
 	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("AutoFlushTestingFile.root", "RECREATE");
 	TTree* tree1 = new TTree("NormalTree","NormalTree");
 	TTree* tree2 = new TTree("AutoFlushedTree","AutoFlushed Tree");
@@ -25,29 +27,69 @@ void AutoFlushTest(Long64_t NewAutoF = -30000000) {
 	tree2->SetAutoFlush(NewAutoF);
 	
 	//initializing tree branches, and float arrays to hold leaves
-	const Int_t N = 1000;
-	float var[5];
 	
-	tree1->Branch("branch0", &var[0]);
-	tree1->Branch("branch1", &var[1]);
-	tree1->Branch("branch2", &var[2]);
-	tree1->Branch("branch3", &var[3]);
-	tree1->Branch("branch4", &var[4]);
+std::cout << "initializing vectors..." << std::endl;
 	
-	tree2->Branch("branch0", &var[0]);
-	tree2->Branch("branch1", &var[1]);
-	tree2->Branch("branch2", &var[2]);
-	tree2->Branch("branch3", &var[3]);
-	tree2->Branch("branch4", &var[4]);
+	const Int_t N = 1500000;	//number of events: 1,500,000
+	const Int_t NEntries = 20;
+	
+	std::vector<float> v0;
+	std::vector<float> v1;
+	std::vector<float> v2;
+	std::vector<float> v3;
+	std::vector<float> v4;
+	
+	float f0;
+	float f1;
+	float f2;
+	float f3;
+	float f4;
+	
+std::cout << "initializing branches..." << std::endl;
+	
+	tree1->Branch("branch0", &v0);
+	tree1->Branch("branch1", &v1);
+	tree1->Branch("branch2", &v2);
+	tree1->Branch("branch3", &v3);
+	tree1->Branch("branch4", &v3);
+	
+	tree2->Branch("branch0", &v0);
+	tree2->Branch("branch1", &v1);
+	tree2->Branch("branch2", &v2);
+	tree2->Branch("branch3", &v3);
+	tree2->Branch("branch4", &v4);
 
 	//generating random numbers and filling trees
 	for(int i = 0; i < N ; i++) {
+		
+if(N == 0) std::cout << "Generating Events 0 to 300,000..." << std::endl;
+if(N == 300001) std::cout << "Generating Events 300,000 to 600,000..." << std::endl;
+if(N == 600001) std::cout << "Generating Events 600,000 to 900,000..." << std::endl;
+if(N == 900001) std::cout << "Generating Events 900,000 to 1,200,000..." << std::endl;
+if(N == 120001) std::cout << "Generating Events 1,200,000 to 1,500,000..." << std::endl;
+		
+		v0.clear();
+		v1.clear();
+		v2.clear();
+		v3.clear();
+		v4.clear();
+
 	
-		var[0] = gRandom->Rndm();
-		var[1] = gRandom->Rndm();
-		var[2] = gRandom->Rndm();
-		var[3] = gRandom->Rndm();
-		var[4] = gRandom->Rndm();
+		for(int j = 0; j < NEntries; j++) {
+			
+		f0 = gRandom->Rndm();
+		f1 = gRandom->Rndm();
+		f2 = gRandom->Rndm();
+		f3 = gRandom->Rndm();
+		f4 = gRandom->Rndm();
+			
+		v0.emplace_back(f0);
+		v1.emplace_back(f1);
+		v2.emplace_back(f2);
+		v3.emplace_back(f3);
+		v4.emplace_back(f4);
+			
+		}
 		
 		tree1->Fill();
 		tree2->Fill();
