@@ -10,7 +10,9 @@
 #include "TStyle.h"
 #include "TCanvas.h"
 
-void create() {
+//void create() {
+
+void AutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
 
 	//create file and tree
@@ -20,7 +22,7 @@ void create() {
 	TTree* tree2 = new TTree("AutoFlushedTree","AutoFlushed Tree");
 	
 	//normal: Long64_t autof = -30000000
-	tree2->SetAutoFlush(-25000000);
+	tree2->SetAutoFlush(NewAutoF);
 	
 	//initializing tree branches, and float arrays to hold leaves
 	const Int_t N = 1000;
@@ -156,11 +158,11 @@ void read() {
 
 }
 
-void AutoFlushTest() {
+//void AutoFlushTest() {
 	//creates two trees with five branches, fills each with 1000 random numbers of different distributions
-	create();
+	//create();
 	//read();
-}
+//}
 
 
 int main() {
