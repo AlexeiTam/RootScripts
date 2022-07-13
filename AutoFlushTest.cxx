@@ -11,35 +11,53 @@
 #include "TCanvas.h"
 
 void create() {
+	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
 
 	//create file and tree
 	
-	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("BigTreeFile.root", "RECREATE");
-	TTree* tree = new TTree("myTree","myTree");
+	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("AutoFlushTestingFile.root", "RECREATE");
+	TTree* tree1 = new TTree("NormalTree","NormalTree");
+	TTree* tree2 = new TTree("AutoFlushedTree","AutoFlushed Tree");
+	
+	//normal: Long64_t autof = -30000000
+	tree2->SetAutoFlush(Long64_t newAutoF = -25000000);
 	
 	//initializing tree branches, and float arrays to hold leaves
 	const Int_t N = 1000;
 	float var[5];
-	tree->Branch("branch0", &var[0]);
-	tree->Branch("branch1", &var[1]);
-	tree->Branch("branch2", &var[2]);
-	tree->Branch("branch3", &var[3]);
-	tree->Branch("branch4", &var[4]);
+	
+	tree1->Branch("branch0", &var[0]);
+	tree1->Branch("branch1", &var[1]);
+	tree1->Branch("branch2", &var[2]);
+	tree1->Branch("branch3", &var[3]);
+	tree1->Branch("branch4", &var[4]);
+	
+	tree2->Branch("branch0", &var[0]);
+	tree2->Branch("branch1", &var[1]);
+	tree2->Branch("branch2", &var[2]);
+	tree2->Branch("branch3", &var[3]);
+	tree2->Branch("branch4", &var[4]);
 
 	//generating random numbers and filling trees
 	for(int i = 0; i < N ; i++) {
 	
-		var[0] = i;
+		var[0] = gRandom->Rndm();
 		var[1] = gRandom->Rndm();
-		var[2] = gRandom->Gaus(0,1);
-		var[3] = gRandom->Exp(-0.6);
-		var[4] = gRandom->Landau(0.25,1.1);
+		var[2] = gRandom->Rndm();
+		var[3] = gRandom->Rndm();
+		var[4] = gRandom->Rndm();
 		
-		tree->Fill();
+		tree1->Fill();
+		tree2->Fill();
 	}
 
 	//writing tree header and saving file
-	tree->Write();
+	tree1->Write();
+	tree2->Write();
+	
+	tree1->Print();
+	tree2->Print();
+	
 	myFile->Save();
 	myFile->Close();
 	
@@ -138,10 +156,10 @@ void read() {
 
 }
 
-void CreateTree() {
-	//creates a tree with five branches, fills each with 1000 random numbers of different distributions
+void AutoFlushTest() {
+	//creates two trees with five branches, fills each with 1000 random numbers of different distributions
 	create();
-	read();
+	//read();
 }
 
 
