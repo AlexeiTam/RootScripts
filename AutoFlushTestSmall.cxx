@@ -14,7 +14,7 @@
 
 void AutoFlushTestSmall(Long64_t NewAutoF = -30000000) {
 	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
-
+	//GOAL2: scale down events, more dramatically change NewAutoF
 	//create file and tree
 	
 std::cout << "writing file and tree..." << std::endl;
@@ -30,8 +30,8 @@ std::cout << "writing file and tree..." << std::endl;
 	
 std::cout << "initializing vectors..." << std::endl;
 	
-	const Int_t N = 1500000;	//number of events: 1,500,000
-	const Int_t NEntries = 20;
+	const Int_t N = 1000;	//number of events: 1,500,000-->1000
+	const Int_t NEntries = 5;
 	
 	std::vector<float> v0;
 	std::vector<float> v1;
@@ -61,22 +61,6 @@ std::cout << "initializing branches..." << std::endl;
 
 	//generating random numbers and filling trees
 	for(int i = 0; i < N ; i++) {
-		
-if(i == 0) {
-std::cout << "Generating Events 0 to 300,000..." << std::endl;
-}
-if(i == 300001) {
-std::cout << "Generating Events 300,000 to 600,000..." << std::endl;
-}
-if(i == 600001) {
-std::cout << "Generating Events 600,000 to 900,000..." << std::endl;
-}
-if(i == 900001) {
-std::cout << "Generating Events 900,000 to 1,200,000..." << std::endl;
-}
-if(i == 1200001) {
-std::cout << "Generating Events 1,200,000 to 1,500,000..." << std::endl;
-}
 		
 		v0.clear();
 		v1.clear();
