@@ -62,19 +62,19 @@ std::cout << "initializing branches..." << std::endl;
 	//generating random numbers and filling trees
 	for(int i = 0; i < N ; i++) {
 		
-if(N == 0) {
+if(i == 0) {
 std::cout << "Generating Events 0 to 300,000..." << std::endl;
 }
-if(N == 300001) {
+if(i == 300001) {
 std::cout << "Generating Events 300,000 to 600,000..." << std::endl;
 }
-if(N == 600001) {
+if(i == 600001) {
 std::cout << "Generating Events 600,000 to 900,000..." << std::endl;
 }
-if(N == 900001) {
+if(i == 900001) {
 std::cout << "Generating Events 900,000 to 1,200,000..." << std::endl;
 }
-if(N == 120001) {
+if(i == 120001) {
 std::cout << "Generating Events 1,200,000 to 1,500,000..." << std::endl;
 }
 		
