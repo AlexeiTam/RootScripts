@@ -74,7 +74,7 @@ std::cout << "Generating Events 600,000 to 900,000..." << std::endl;
 if(i == 900001) {
 std::cout << "Generating Events 900,000 to 1,200,000..." << std::endl;
 }
-if(i == 120001) {
+if(i == 1200001) {
 std::cout << "Generating Events 1,200,000 to 1,500,000..." << std::endl;
 }
 		
