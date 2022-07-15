@@ -88,7 +88,7 @@ std::cout << "initializing branches..." << std::endl;
 		vs4.clear();
 		vs5.clear();
 		
-		vs0.clear();
+		vb0.clear();
 		vb1.clear();
 
 	
