@@ -32,7 +32,7 @@ std::cout << "initializing vectors..." << std::endl;
 	
 	const Int_t N = 1000;	//number of events: 1,500,000-->1000
 	const Int_t NS = 5;
-	const Int_t NL = 20;
+	const Int_t NB = 20;
 	
 	std::vector<float> vs0;
 	std::vector<float> vs1;
