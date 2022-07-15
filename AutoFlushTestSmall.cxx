@@ -40,8 +40,6 @@ std::cout << "initializing vectors..." << std::endl;
 	std::vector<float> vs3;
 	std::vector<float> vs4;
 	std::vector<float> vs5;
-	std::vector<float> vs6;
-	std::vector<float> vs7;
 	
 	std::vector<float> vb0;
 	std::vector<float> vb1;
@@ -52,8 +50,7 @@ std::cout << "initializing vectors..." << std::endl;
 	float fs3;
 	float fs4;
 	float fs5;
-	float fs6;
-	float fs7;
+	
 	float fb0;
 	float fb1;
 	
@@ -67,8 +64,6 @@ std::cout << "initializing branches..." << std::endl;
 	tree1->Branch("NS3", &vs3);
 	tree1->Branch("NS4", &vs4);
 	tree1->Branch("NS5", &vs5);
-	tree1->Branch("NS6", &vs6);
-	tree1->Branch("NS7", &vs7);
 	
 	tree1->Branch("NB0", &vb0);
 	tree1->Branch("NB1", &vb1);
@@ -79,8 +74,6 @@ std::cout << "initializing branches..." << std::endl;
 	tree2->Branch("AS3", &vs3);
 	tree2->Branch("AS4", &vs4);
 	tree2->Branch("AS5", &vs5);
-	tree2->Branch("AS6", &vs6);
-	tree2->Branch("AS7", &vs7);
 	
 	tree2->Branch("AB0", &vb0);
 	tree2->Branch("AB1", &vb1);
@@ -94,8 +87,6 @@ std::cout << "initializing branches..." << std::endl;
 		vs3.clear();
 		vs4.clear();
 		vs5.clear();
-		vs6.clear();
-		vs7.clear();
 		
 		vs0.clear();
 		vb1.clear();
@@ -109,17 +100,13 @@ std::cout << "initializing branches..." << std::endl;
 		fs3 = gRandom->Rndm();
 		fs4 = gRandom->Rndm();
 		fs5 = gRandom->Rndm();
-		fs6 = gRandom->Rndm();
-		fs7 = gRandom->Rndm();
-			
+		
 		vs0.emplace_back(fs0);
 		vs1.emplace_back(fs1);
 		vs2.emplace_back(fs2);
 		vs3.emplace_back(fs3);
 		vs4.emplace_back(fs4);
 		vs5.emplace_back(fs5);
-		vs6.emplace_back(fs6);
-		vs7.emplace_back(fs7);
 			
 		}
 		
