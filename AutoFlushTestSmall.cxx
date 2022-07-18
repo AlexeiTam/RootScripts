@@ -113,7 +113,7 @@ std::cout << "initializing branches..." << std::endl;
 		for(int m = 0; m < NB; m++) {
 		
 		fb0 = gRandom->Rndm();
-		fb1 = gRandom->Rndm();
+		fb1 = gRandom->Gaus(0,1);
 			
 		vb0.emplace_back(fb0);
 		vb1.emplace_back(fb1);
