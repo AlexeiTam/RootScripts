@@ -95,11 +95,11 @@ std::cout << "initializing branches..." << std::endl;
 		for(int j = 0; j < NS; j++) {
 			
 		fs0 = gRandom->Rndm();
-		fs1 = gRandom->Rndm();
-		fs2 = gRandom->Rndm();
-		fs3 = gRandom->Rndm();
-		fs4 = gRandom->Rndm();
-		fs5 = gRandom->Rndm();
+		fs1 = gRandom->Gaus(2,1);
+		fs2 = gRandom->Gaus(2,3);
+		fs3 = gRandom->Landau(0,1);
+		fs4 = gRandom->Landau(0,3);
+		fs5 = gRandom->Poisson(23.12);
 		
 		vs0.emplace_back(fs0);
 		vs1.emplace_back(fs1);
