@@ -30,68 +30,86 @@ std::cout << "writing file and tree..." << std::endl;
 	
 std::cout << "initializing vectors..." << std::endl;
 	
-	const Int_t N = 1000;	//number of events: 1,500,000-->1000
-	const Int_t NS = 5;
-	const Int_t NB = 20;
+	const Int_t NEvents = 10000;	//number of events: 10,000
+	const Int_t N0 = 5;
+	const Int_t N1 = 10;
+	const Int_t N2 = 20;
+	const Int_t N3 = 50;
+	const Int_t N4 = 100;
+	const Int_t N5 = 200;
+	const Int_t N6 = 500;
+	const Int_t N7 = 1000;
+	const Int_t N8 = 2000;
+	const Int_t N9 = 5000;
 	
-	std::vector<float> vs0;
-	std::vector<float> vs1;
-	std::vector<float> vs2;
-	std::vector<float> vs3;
-	std::vector<float> vs4;
-	std::vector<float> vs5;
+	std::vector<float> v0;
+	std::vector<float> v1;
+	std::vector<float> v2;
+	std::vector<float> v3;
+	std::vector<float> v4;
+	std::vector<float> v5;
+	std::vector<float> v6;
+	std::vector<float> v7;
+	std::vector<float> v8;
+	std::vector<float> v9;
 	
-	std::vector<float> vb0;
-	std::vector<float> vb1;
-	
-	float fs0;
-	float fs1;
-	float fs2;
-	float fs3;
-	float fs4;
-	float fs5;
-	
-	float fb0;
-	float fb1;
+	float f0;
+	float f1;
+	float f2;
+	float f3;
+	float f4;
+	float f5;
+	float f6;
+	float f7;
+	float f8;
+	float f9;
 	
 	//initializing branches
 	
 std::cout << "initializing branches..." << std::endl;
 	
-	tree1->Branch("NS0", &vs0);
-	tree1->Branch("NS1", &vs1);
-	tree1->Branch("NS2", &vs2);
-	tree1->Branch("NS3", &vs3);
-	tree1->Branch("NS4", &vs4);
-	tree1->Branch("NS5", &vs5);
+	tree1->Branch("N0", &v0);
+	tree1->Branch("N1", &v1);
+	tree1->Branch("N2", &v2);
+	tree1->Branch("N3", &v3);
+	tree1->Branch("N4", &v4);
+	tree1->Branch("N5", &v5);
+	tree1->Branch("N6", &v6);
+	tree1->Branch("N7", &v7);
+	tree1->Branch("N8", &v8);
+	tree1->Branch("N9", &v9);
 	
-	tree1->Branch("NB0", &vb0);
-	tree1->Branch("NB1", &vb1);
 	
-	tree2->Branch("AS0", &vs0);
-	tree2->Branch("AS1", &vs1);
-	tree2->Branch("AS2", &vs2);
-	tree2->Branch("AS3", &vs3);
-	tree2->Branch("AS4", &vs4);
-	tree2->Branch("AS5", &vs5);
+	tree2->Branch("A0", &v0);
+	tree2->Branch("A1", &v1);
+	tree2->Branch("A2", &v2);
+	tree2->Branch("A3", &v3);
+	tree2->Branch("A4", &v4);
+	tree2->Branch("A5", &v5);
+	tree2->Branch("A6", &v6);
+	tree2->Branch("A7", &v7);
+	tree2->Branch("A8", &v8);
+	tree2->Branch("A9", &v9);
 	
-	tree2->Branch("AB0", &vb0);
-	tree2->Branch("AB1", &vb1);
 
 	//generating random numbers and filling trees
-	for(int i = 0; i < N ; i++) {
+	for(int i = 0; i < NEvents ; i++) {
 		
-		vs0.clear();
-		vs1.clear();
-		vs2.clear();
-		vs3.clear();
-		vs4.clear();
-		vs5.clear();
-		
-		vb0.clear();
-		vb1.clear();
+		//clearing vectors for new event
+		v0.clear();
+		v1.clear();
+		v2.clear();
+		v3.clear();
+		v4.clear();
+		v5.clear();
+		v6.clear();
+		v7.clear();
+		v8.clear();
+		v9.clear();
 
 	
+		//branch0
+		//BOOKMARK!!!
 		for(int j = 0; j < NS; j++) {
 			
 		fs0 = gRandom->Rndm();
