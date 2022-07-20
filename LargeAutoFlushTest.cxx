@@ -42,27 +42,9 @@ std::cout << "initializing vectors..." << std::endl;
 	const Int_t N8 = 2000;
 	const Int_t N9 = 5000;
 	
-	std::vector<float> v0;
-	std::vector<float> v1;
-	std::vector<float> v2;
-	std::vector<float> v3;
-	std::vector<float> v4;
-	std::vector<float> v5;
-	std::vector<float> v6;
-	std::vector<float> v7;
-	std::vector<float> v8;
-	std::vector<float> v9;
+	std::vector<float> v0, v1, v2, v3, v4, v5, v6, v7, v8, v9;
 	
-	float f0;
-	float f1;
-	float f2;
-	float f3;
-	float f4;
-	float f5;
-	float f6;
-	float f7;
-	float f8;
-	float f9;
+	float f0, f1, f2, f3, f4, f5, f6, f7, f8, f9;
 	
 	//initializing branches
 	
@@ -111,18 +93,110 @@ std::cout << "initializing branches..." << std::endl;
 		//branch0
 		for(int j = 0; j < N0; j++) {
 			
-		f0 = gRandom->Rndm();
-		v0.emplace_back(f0);
+		f0 = (gRandom->Rndm())*10;
 		
+		v0.emplace_back(f0);
 		}
 		
 		//branch1
 		for(int j = 0; j < N1; j++) {
 		
 		f1 = gRandom->Poisson(1.1);
+			if(f1 > 5) {
+			f1 = 0;
+			}
+			if(f1 < -5) {
+			f1 = 0;
+			}
 		v1.emplace_back(f1);
 		}
 		
+		//branch2
+		for(int j = 0; j < N2; j++) {
+		
+		f2 = gRandom->Rndm();
+			if(f2 < 0) continue;
+			if(f2 > 0) {
+			f2 = 4;
+			}
+		v2.emplace_back(f2);
+		}
+		
+		//branch3
+		for(int j = 0; j < N3; j++) {
+			
+		f3 = gRandom->Rndm();
+			if(f3 > 0.8) {
+			f3 = 6;
+			}
+			if(f3 <= 0.8) {
+			f3 = 2;
+			}
+		v3.emplace_back(f3);
+		}
+		
+		//branch4
+		for(int j = 0; j < N4; j++) {
+		f4 = gRandom->Poisson(2.5);
+			if(f4 > 10) {
+			f4 = 0;
+			}
+		v4.emplace_back(f4);
+		}
+		
+		//branch5
+		for(int j = 0; j < N5; j++) {
+		f5 = gRandom->Poisson(5);
+			if(f5 > 10) {
+			f5 = 0;
+			}
+		v5.emplace_back(f5);
+		}
+		
+		//branch6
+		for(int j = 0; j < N6; j++) {
+		f6 = gRandom->Poisson(4.4);
+			if(f6 > 10) {
+			f6 = 0;
+			}
+		v6.emplace_back(f6);
+		}
+		
+		//branch7
+		for(int j = 0; j < N7; j++) { 
+		f7 = gRandom->Rndm();
+			if(f7 < 0.4) {
+			f7 = 0;
+			}
+			if(f7 > 0.4 && f7 <= 0.7) {
+			f7 = 5.5;
+			}
+			if(f7 > 0.7) {
+			f7 = 7.5;
+			}
+		v7.emplace_back(f7);
+		}
+		
+		//branch8
+		for(int j = 0; j < N8; j++) {
+			
+		f8 = gRandom->Rndm();
+			if(f8 <= 0.5) {
+			f8 = 0;
+			}
+			else continue;
+		v8.emplace_back(f8);
+		}
+		
+		//branch9
+		for(int j = 0; j < N9; j++) {
+		
+		f9 = gRandom->Poisson(7.7);
+			if(f9 > 10) {
+			f9 = 10;
+			}
+		v9.emplace_back(f9);
+		}
 		tree1->Fill();
 		tree2->Fill();
 	}
@@ -132,10 +206,11 @@ std::cout << "initializing branches..." << std::endl;
 	tree2->Write();
 	
 	std::cout <<"autof = " << NewAutoF << std::endl;
-	std::cout << "Normal Tree Scan:" << std::endl;
-	tree1->Scan();
-	std::cout << "AutoFlushed Tree Scan:" << std::endl;
-	tree2->Scan();
+	std::cout <<"reminder: create histograms to show entries in each branch"<< std::endl;
+	//std::cout << "Normal Tree Scan:" << std::endl;
+	//tree1->Scan();
+	//std::cout << "AutoFlushed Tree Scan:" << std::endl;
+	//tree2->Scan();
 	
 	std::cout << "Print logs:" << std::endl;
 	tree1->Print();
