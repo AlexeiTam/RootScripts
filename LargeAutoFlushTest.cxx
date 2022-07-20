@@ -12,7 +12,7 @@
 
 //void create() {
 
-void AutoFlushTestSmall(Long64_t NewAutoF = -30000000) {
+void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
 	//GOAL2: scale down events, more dramatically change NewAutoF
 	//create file and tree
