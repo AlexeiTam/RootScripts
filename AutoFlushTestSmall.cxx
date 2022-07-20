@@ -34,25 +34,13 @@ std::cout << "initializing vectors..." << std::endl;
 	const Int_t NS = 5;
 	const Int_t NB = 20;
 	
-	std::vector<float> vs0;
-	std::vector<float> vs1;
-	std::vector<float> vs2;
-	std::vector<float> vs3;
-	std::vector<float> vs4;
-	std::vector<float> vs5;
+	std::vector<float> vs0, vs1, vs2, vs3, vs4, vs5;
 	
-	std::vector<float> vb0;
-	std::vector<float> vb1;
+	std::vector<float> vb0, vb1;
 	
-	float fs0;
-	float fs1;
-	float fs2;
-	float fs3;
-	float fs4;
-	float fs5;
+	float fs0, fs1, fs2, fs3, fs4, fs5;
 	
-	float fb0;
-	float fb1;
+	float fb0, fb1;
 	
 	//initializing branches
 	
