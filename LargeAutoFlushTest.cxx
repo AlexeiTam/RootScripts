@@ -264,6 +264,21 @@ std::cout << "initializing branches..." << std::endl;
 	
 	cnvs->cd(5);
 	h4->Draw();
+	
+	cnvs->cd(6);
+	h5->Draw();
+	
+	cnvs->cd(7);
+	h6->Draw();
+	
+	cnvs->cd(8);
+	h7->Draw();
+	
+	cnvs->cd(9);
+	h8->Draw();
+	
+	cnvs->cd(10);
+	h9->Draw();
 
 
 	myFile->Save();
