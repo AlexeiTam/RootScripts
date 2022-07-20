@@ -109,33 +109,18 @@ std::cout << "initializing branches..." << std::endl;
 
 	
 		//branch0
-		//BOOKMARK!!!
-		for(int j = 0; j < NS; j++) {
+		for(int j = 0; j < N0; j++) {
 			
-		fs0 = gRandom->Rndm();
-		fs1 = gRandom->Gaus(2,1);
-		fs2 = gRandom->Gaus(2,3);
-		fs3 = gRandom->Landau(0,1);
-		fs4 = gRandom->Landau(0,3);
-		fs5 = gRandom->Poisson(23.12);
+		f0 = gRandom->Rndm();
+		v0.emplace_back(f0);
 		
-		vs0.emplace_back(fs0);
-		vs1.emplace_back(fs1);
-		vs2.emplace_back(fs2);
-		vs3.emplace_back(fs3);
-		vs4.emplace_back(fs4);
-		vs5.emplace_back(fs5);
-			
 		}
 		
-		for(int m = 0; m < NB; m++) {
+		//branch1
+		for(int j = 0; j < N1; j++) {
 		
-		fb0 = gRandom->Rndm();
-		fb1 = gRandom->Poisson(23.12);
-			
-		vb0.emplace_back(fb0);
-		vb1.emplace_back(fb1);
-		
+		f1 = gRandom->Poisson(1.1);
+		v1.emplace_back(f1);
 		}
 		
 		tree1->Fill();
