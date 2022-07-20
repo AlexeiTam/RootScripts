@@ -50,28 +50,28 @@ std::cout << "initializing vectors..." << std::endl;
 	
 std::cout << "initializing branches..." << std::endl;
 	
-	tree1->Branch("N0", &v0);
-	tree1->Branch("N1", &v1);
-	tree1->Branch("N2", &v2);
-	tree1->Branch("N3", &v3);
-	tree1->Branch("N4", &v4);
-	tree1->Branch("N5", &v5);
-	tree1->Branch("N6", &v6);
-	tree1->Branch("N7", &v7);
-	tree1->Branch("N8", &v8);
-	tree1->Branch("N9", &v9);
+	tree1->Branch("N5", &v0);
+	tree1->Branch("N10", &v1);
+	tree1->Branch("N20", &v2);
+	tree1->Branch("N50", &v3);
+	tree1->Branch("N100", &v4);
+	tree1->Branch("N200", &v5);
+	tree1->Branch("N500", &v6);
+	tree1->Branch("N1000", &v7);
+	tree1->Branch("N2000", &v8);
+	tree1->Branch("N5000", &v9);
 	
 	
-	tree2->Branch("A0", &v0);
-	tree2->Branch("A1", &v1);
-	tree2->Branch("A2", &v2);
-	tree2->Branch("A3", &v3);
-	tree2->Branch("A4", &v4);
-	tree2->Branch("A5", &v5);
-	tree2->Branch("A6", &v6);
-	tree2->Branch("A7", &v7);
-	tree2->Branch("A8", &v8);
-	tree2->Branch("A9", &v9);
+	tree2->Branch("A5", &v0);
+	tree2->Branch("A10", &v1);
+	tree2->Branch("A20", &v2);
+	tree2->Branch("A50", &v3);
+	tree2->Branch("A100", &v4);
+	tree2->Branch("A200", &v5);
+	tree2->Branch("A500", &v6);
+	tree2->Branch("A1000", &v7);
+	tree2->Branch("A2000", &v8);
+	tree2->Branch("A5000", &v9);
 	
 
 	//generating random numbers and filling trees
@@ -197,8 +197,10 @@ std::cout << "initializing branches..." << std::endl;
 			}
 		v9.emplace_back(f9);
 		}
+		
 		tree1->Fill();
 		tree2->Fill();
+		
 	}
 
 	//writing tree header and saving file
