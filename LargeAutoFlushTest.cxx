@@ -17,6 +17,24 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//GOAL2: scale down events, more dramatically change NewAutoF
 	//create file and tree
 	
+	//creating canvas
+	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 800, 500);
+	cnvs->Divide(5,2);
+	gStyle->SetOptStat(0);
+	
+	//creating histograms
+	TH1D *h0 = new TH1D("h0","Branch0 Entries",100,-0.1,10.1);
+	TH1D *h1 = new TH1D("h1","Branch1 Entries",100,-0.1,10.1);
+	TH1D *h2 = new TH1D("h2","Branch2 Entries",100,-0.1,10.1);
+	TH1D *h3 = new TH1D("h3","Branch3 Entries",100,-0.1,10.1);
+	TH1D *h4 = new TH1D("h4","Branch4 Entries",100,-0.1,10.1);
+	TH1D *h5 = new TH1D("h5","Branch5 Entries",100,-0.1,10.1);
+	TH1D *h6 = new TH1D("h6","Branch6 Entries",100,-0.1,10.1);
+	TH1D *h7 = new TH1D("h7","Branch7 Entries",100,-0.1,10.1);
+	TH1D *h8 = new TH1D("h8","Branch8 Entries",100,-0.1,10.1);
+	TH1D *h9 = new TH1D("h9","Branch9 Entries",100,-0.1,10.1);
+	
+	
 std::cout << "writing file and tree..." << std::endl;
 	
 	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("AutoFlushTestingFile.root", "RECREATE");
@@ -94,6 +112,8 @@ std::cout << "initializing branches..." << std::endl;
 		for(int j = 0; j < N0; j++) {
 			
 		f0 = (gRandom->Rndm())*10;
+			
+			h0->Fill(f0);
 		
 		v0.emplace_back(f0);
 		}
@@ -108,6 +128,7 @@ std::cout << "initializing branches..." << std::endl;
 			if(f1 < -5) {
 			f1 = 0;
 			}
+		h1->Fill(f1);
 		v1.emplace_back(f1);
 		}
 		
@@ -119,6 +140,7 @@ std::cout << "initializing branches..." << std::endl;
 			if(f2 > 0) {
 			f2 = 4;
 			}
+		h2->Fill(f2);
 		v2.emplace_back(f2);
 		}
 		
@@ -132,6 +154,7 @@ std::cout << "initializing branches..." << std::endl;
 			if(f3 <= 0.8) {
 			f3 = 2;
 			}
+		h3->Fill(f3);
 		v3.emplace_back(f3);
 		}
 		
@@ -141,6 +164,7 @@ std::cout << "initializing branches..." << std::endl;
 			if(f4 > 10) {
 			f4 = 0;
 			}
+		h4->Fill(f4);
 		v4.emplace_back(f4);
 		}
 		
@@ -150,6 +174,7 @@ std::cout << "initializing branches..." << std::endl;
 			if(f5 > 10) {
 			f5 = 0;
 			}
+		h5->Fill(f5);
 		v5.emplace_back(f5);
 		}
 		
@@ -159,6 +184,7 @@ std::cout << "initializing branches..." << std::endl;
 			if(f6 > 10) {
 			f6 = 0;
 			}
+		h6->Fill(f6);
 		v6.emplace_back(f6);
 		}
 		
@@ -174,6 +200,7 @@ std::cout << "initializing branches..." << std::endl;
 			if(f7 > 0.7) {
 			f7 = 7.5;
 			}
+		h7->Fill(f7);
 		v7.emplace_back(f7);
 		}
 		
@@ -185,6 +212,7 @@ std::cout << "initializing branches..." << std::endl;
 			f8 = 0;
 			}
 			else continue;
+		h8->Fill(f8);
 		v8.emplace_back(f8);
 		}
 		
@@ -195,6 +223,7 @@ std::cout << "initializing branches..." << std::endl;
 			if(f9 > 10) {
 			f9 = 10;
 			}
+		h9->Fill(f9);
 		v9.emplace_back(f9);
 		}
 		
@@ -218,11 +247,30 @@ std::cout << "initializing branches..." << std::endl;
 	tree1->Print();
 	tree2->Print();
 	
+	//draw histograms
+	cnvs->Update();
+	
+	cnvs->cd(1);
+	h0->Draw();
+	
+	cnvs->cd(2);
+	h1->Draw();
+	
+	cnvs->cd(3);
+	h2->Draw();
+	
+	cnvs->cd(4);
+	h3->Draw();
+	
+	cnvs->cd(5);
+	h4->Draw();
+
+
 	myFile->Save();
 	myFile->Close();
 	
-	
-	
+	cnvs->Update();
+	cnvs->Draw();
 }
 
 void read() {
