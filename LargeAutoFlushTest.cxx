@@ -322,7 +322,7 @@ void read() {
 
 
 int main() {
-  AutoFlushTestSmall();
+  LargeAutoFlushTest();
   return 0; 
 }
 
