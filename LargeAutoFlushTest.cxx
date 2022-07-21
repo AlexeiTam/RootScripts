@@ -35,14 +35,14 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	TH1D *h9 = new TH1D("h9","Branch9 Entries",100,-0.1,10.1);
 	
 	//fill colors and axis naming
-	h0->SetFillColor(2);
-	h1->SetFillColor(3);
+	h5->SetFillColor(2);
+	h6->SetFillColor(3);
 	
-	h0->GetXaxis()->SetTitle("Entry Value");
-	h0->GetYaxis()->SetTitle("Events");
+	h5->GetXaxis()->SetTitle("Entry Value");
+	h5->GetYaxis()->SetTitle("Events");
 	
-	h1->GetXaxis()->SetTitle("Entry Value");
-	h1->GetYaxis()->SetTitle("Events");
+	h6->GetXaxis()->SetTitle("Entry Value");
+	h6->GetYaxis()->SetTitle("Events");
 	
 std::cout << "writing file and tree..." << std::endl;
 	
@@ -179,10 +179,7 @@ std::cout << "initializing branches..." << std::endl;
 		
 		//branch5
 		for(int j = 0; j < N5; j++) {
-		f5 = gRandom->Poisson(5);
-			if(f5 > 10) {
-			f5 = 0;
-			}
+		f5 = gRandom->Rndm();
 		h5->Fill(f5);
 		v5.emplace_back(f5);
 		}
