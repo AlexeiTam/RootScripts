@@ -179,7 +179,7 @@ std::cout << "initializing branches..." << std::endl;
 		
 		//branch5
 		for(int j = 0; j < N5; j++) {
-		f5 = gRandom->Rndm();
+		f5 = 10*(gRandom->Rndm());
 		h5->Fill(f5);
 		v5.emplace_back(f5);
 		}
