@@ -34,6 +34,9 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	TH1D *h8 = new TH1D("h8","Branch8 Entries",100,-0.1,10.1);
 	TH1D *h9 = new TH1D("h9","Branch9 Entries",100,-0.1,10.1);
 	
+	h0->SetFillColor(2);
+	h1->SetFillColor(3);
+	
 	
 std::cout << "writing file and tree..." << std::endl;
 	
