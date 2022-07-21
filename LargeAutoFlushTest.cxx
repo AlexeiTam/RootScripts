@@ -38,11 +38,11 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	h0->SetFillColor(2);
 	h1->SetFillColor(3);
 	
-	h0->GetXaxis()->SetTitle->("Entry Value");
-	h0->GetYaxis()->SetTitle->("Events");
+	h0->GetXaxis()->SetTitle("Entry Value");
+	h0->GetYaxis()->SetTitle("Events");
 	
-	h1->GetXaxis()->SetTitle->("Entry Value");
-	h1->GetYaxis()->SetTitle->("Events");
+	h1->GetXaxis()->SetTitle("Entry Value");
+	h1->GetYaxis()->SetTitle("Events");
 	
 std::cout << "writing file and tree..." << std::endl;
 	
