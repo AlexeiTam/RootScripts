@@ -12,7 +12,7 @@
 
 //void create() {
 
-void write() {
+void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000){
 	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
 	//GOAL2: scale down events, more dramatically change NewAutoF
 	//create file and tree
@@ -29,7 +29,7 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	
 	//creating histograms
 	
-	const Int_t NBins = 2000;
+	const Int_t NBins = 1000;
 	
 	TH1D *h0 = new TH1D("h0","Branch0 Entries",NBins,-0.1,10.1);
 	TH1D *h1 = new TH1D("h1","Branch1 Entries",NBins,-0.1,10.1);
@@ -242,7 +242,37 @@ std::cout << "initializing branches..." << std::endl;
 	tree2->Write();
 	
 	std::cout <<"autof = " << NewAutoF << std::endl;
-	std::cout <<"reminder: create histograms to show entries in each branch"<< std::endl;
+	//TEST: give branch a pointer, 
+	tree1->SetBranchAddress("N5",&v0,&n5);
+	tree2->SetBranchAddress("A5",&v0,&a5);
+	
+	//TEST: variables
+	Int_t N5Size, A5Size;
+	Int_t N5Count, A5Count;
+	Double_t N5TotBytes, A5TotBytes;
+	Double_t N5TotZipBytes, A5TotZipBytes;
+	Double_t N5Comp, A5Comp;
+	
+	//TEST: calculations
+		//Basket Sizes
+		N5Size = n5->GetBasketSize();
+		A5Size = a5->GetBasketSize();
+	
+		//Basket Counts
+		N5TotBytes = n5->GetTotBytes();
+		A5TotBytes = a5->GetTotBytes();
+	
+		N5Count = (N5TotBytes)/(N5Size);
+		A5Count = (A5TotBytes)/(A5Size);
+	
+		//Compression
+		N5TotZipBytes = n5->GetZipBytes();
+		A5TotZipBytes = a5->GetZipBytes();
+	
+		N5Comp = (N5TotBytes)/(N5TotZipBytes);
+		A5Comp = (A5TotBytes)/(A5TotZipBytes);
+	
+	
 	//std::cout << "Normal Tree Scan:" << std::endl;
 	//tree1->Scan();
 	//std::cout << "AutoFlushed Tree Scan:" << std::endl;
@@ -251,6 +281,10 @@ std::cout << "initializing branches..." << std::endl;
 	std::cout << "Print logs:" << std::endl;
 	tree1->Print();
 	tree2->Print();
+	
+	std::cout << "Predicting N5, A5 Basket Counts, Sizes, and Compression:" << std::endl;
+	std::cout << "N5 Count:" << N5Count << "..." << "N5 Basket Size" << N5Size << "..." << "N5 Compression" << N5Comp << std::endl;
+	std::cout << "A5 Count:" << A5Count << "..." << "A5 Basket Size" << A5Size << "..." << "A5 Compression" << A5Comp << std::endl;
 	
 	//draw histograms
 	cnvs->Update();
@@ -388,9 +422,9 @@ void read() {
 
 }
 
-void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000) {
+//void write() {
 	//creates two trees with five branches, fills each with 1000 random numbers of different distributions
-	write();
+	//write();
 	//read();
 //}
 
