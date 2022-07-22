@@ -20,8 +20,11 @@ void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//creating canvas
 std::cout << "creating canvases and histograms..." << std::endl;
 	
-	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 1200, 800);
+	TCanvas *cnvs = new TCanvas("cnvs","Tree Scan", 10, 10, 1200, 800);
 	cnvs->Divide(5,2);
+	gStyle->SetOptStat(0);
+	
+	TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
 	gStyle->SetOptStat(0);
 	
 	//creating histograms
@@ -54,16 +57,16 @@ std::cout << "writing file and tree..." << std::endl;
 std::cout << "initializing vectors..." << std::endl;
 	
 	const Int_t NEvents = 10000;	//number of events: 10,000
-	const Int_t N0 = 5;
+	const Int_t N0 = 1;
 	const Int_t N1 = 10;
-	const Int_t N2 = 20;
+	const Int_t N2 = 25;
 	const Int_t N3 = 50;
 	const Int_t N4 = 100;
 	const Int_t N5 = 200;
 	const Int_t N6 = 500;
-	const Int_t N7 = 1000;
-	const Int_t N8 = 2000;
-	const Int_t N9 = 5000;
+	const Int_t N7 = 750;
+	const Int_t N8 = 1000;
+	const Int_t N9 = 2000;
 	
 	std::vector<float> v0, v1, v2, v3, v4, v5, v6, v7, v8, v9;
 	
@@ -288,6 +291,10 @@ std::cout << "initializing branches..." << std::endl;
 	
 	cnvs->Update();
 	cnvs->Draw();
+	
+	cnvs->Update();
+	//? Is there a way to initialize this?
+	//cnvs->SaveAs("FirstTreeCanvas.pdf");
 }
 
 void read() {
