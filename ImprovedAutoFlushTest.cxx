@@ -17,6 +17,10 @@ void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000){
 	//GOAL2: scale down events, more dramatically change NewAutoF
 	//create file and tree
 	
+				//ISSUES
+				//!!BASKET SIZE, COMPRESSION CX CALCULATIONS WORKING
+				//!!BASKET COUNTER NOT WORKING
+	
 	//creating canvas
 std::cout << "creating canvases and histograms..." << std::endl;
 	
