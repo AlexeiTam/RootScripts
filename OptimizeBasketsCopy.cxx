@@ -16,7 +16,7 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
    }
    Double_t aveSize = treeSize/nleaves;
    UInt_t bmin = 512;
-   UInt_t bmax = 256000;//?? Is this the hardcoded bmax?
+   UInt_t bmax = 256000;
    Double_t memFactor = 1;
    Int_t i, oldMemsize,newMemsize,oldBaskets,newBaskets;
    i = oldMemsize = newMemsize = oldBaskets = newBaskets = 0;
@@ -39,20 +39,20 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
             // There is no data, so let's make a guess ...
             sizeOfOneEntry = aveSize;
          } else {
-            sizeOfOneEntry = 1+(UInt_t)(totBytes / (Double_t)branch->GetEntries());	//?? Huh?
+            sizeOfOneEntry = 1+(UInt_t)(totBytes / (Double_t)branch->GetEntries());	
          }
          Int_t oldBsize = branch->GetBasketSize();
          oldMemsize += oldBsize;
-         oldBaskets += 1+Int_t(totBytes/oldBsize);
+         oldBaskets += 1+Int_t(totBytes/oldBsize);	//!! NTS: oldBaskets = # of Baskets, totBytes = branch->GetTotBytes(), oldBsize = branch->GetBasketSize(),
          Int_t nb = branch->GetListOfBranches()->GetEntries();
          if (nb > 0) {
             newBaskets += 1+Int_t(totBytes/oldBsize);
             continue;
          }
 	//!! Buffer size rescaling comments?
-         Double_t bsize = oldBsize*idealFactor*memFactor; //bsize can be very large !
+         Double_t bsize = oldBsize*idealFactor*memFactor; //bsize can be very large !	//?? HOW LARGE??
          if (bsize < 0) bsize = bmax;
-         if (bsize > bmax) bsize = bmax;
+         if (bsize > bmax) bsize = bmax;	//NTS: STRANGE TO CALCULATE bsize WITH ALL THESE FACTORS, ONLY TO DEFINE IT ARBITRARILY...
          UInt_t newBsize = UInt_t(bsize);
          if (pass) { // only on the second pass so that it doesn't interfere with scaling
             // If there is an entry offset, it will be stored in the same buffer as the object data; hence,
@@ -87,7 +87,7 @@ void TTree::OptimizeBaskets(ULong64_t maxMemory, Float_t minComp, Option_t *opti
          if (pass == 0) continue;
          //Reset the compression level in case the compression factor is small
          Double_t comp = 1;
-         if (branch->GetZipBytes() > 0) comp = totBytes/Double_t(branch->GetZipBytes());
+         if (branch->GetZipBytes() > 0) comp = totBytes/Double_t(branch->GetZipBytes());	//?? IS THIS HOW CX IS CALCULATED? 
          if (comp > 1 && comp < minComp) {
             if (pDebug) Info("OptimizeBaskets", "Disabling compression for branch : %s\n",branch->GetName());
             branch->SetCompressionSettings(ROOT::RCompressionSetting::EAlgorithm::kUseGlobal);
