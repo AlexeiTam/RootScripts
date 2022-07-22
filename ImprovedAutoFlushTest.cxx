@@ -12,7 +12,7 @@
 
 //void create() {
 
-void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000) {
+void write() {
 	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
 	//GOAL2: scale down events, more dramatically change NewAutoF
 	//create file and tree
@@ -388,9 +388,9 @@ void read() {
 
 }
 
-//void AutoFlushTest() {
+void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//creates two trees with five branches, fills each with 1000 random numbers of different distributions
-	//create();
+	write();
 	//read();
 //}
 
