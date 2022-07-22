@@ -268,8 +268,8 @@ std::cout << "initializing branches..." << std::endl;
 		N5TotZipBytes = n5->GetZipBytes();
 		A5TotZipBytes = a5->GetZipBytes();
 	
-		N5Count = (N5TotZipBytes)/(N5Size);
-		A5Count = (A5TotZipBytes)/(A5Size);
+		N5Count = 1 + (UInt_t)(N5TotBytes)/(N5Size);
+		A5Count = 1 + (UInt_t)(A5TotBytes)/(A5Size);
 	
 		//Compression
 		N5Comp = (N5TotBytes)/(N5TotZipBytes);
