@@ -251,7 +251,7 @@ std::cout << "initializing branches..." << std::endl;
 	
 	//TEST: variables
 	Int_t N5Size, A5Size;
-	Int_t N5Count, A5Count;
+	Double_t N5Count, A5Count;
 	Double_t N5TotBytes, A5TotBytes;
 	Double_t N5TotZipBytes, A5TotZipBytes;
 	Double_t N5Comp, A5Comp;
@@ -270,8 +270,8 @@ std::cout << "initializing branches..." << std::endl;
 	
 		//??Why are basket counts not working??
 	
-		N5Count = 1 + (UInt_t)(N5TotBytes/N5Size);
-		A5Count = 1 + (UInt_t)(A5TotBytes/A5Size);
+		N5Count = 1 + (N5TotBytes/N5Size);
+		A5Count = 1 + (A5TotBytes/A5Size);
 	
 		//Compression
 		N5Comp = (N5TotBytes)/(N5TotZipBytes);
