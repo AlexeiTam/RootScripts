@@ -12,37 +12,33 @@
 
 //void create() {
 
-void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
+void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
 	//GOAL2: scale down events, more dramatically change NewAutoF
 	//create file and tree
 	
 	//creating canvas
-	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 800, 500);
+std::cout << "creating canvases and histograms..." << std::endl;
+	
+	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 1200, 800);
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
 	//creating histograms
-	TH1D *h0 = new TH1D("h0","Branch0 Entries",100,-0.1,10.1);
-	TH1D *h1 = new TH1D("h1","Branch1 Entries",100,-0.1,10.1);
-	TH1D *h2 = new TH1D("h2","Branch2 Entries",100,-0.1,10.1);
-	TH1D *h3 = new TH1D("h3","Branch3 Entries",100,-0.1,10.1);
-	TH1D *h4 = new TH1D("h4","Branch4 Entries",100,-0.1,10.1);
-	TH1D *h5 = new TH1D("h5","LESS COMPRESSIBLE",100,-0.1,10.1);
-	TH1D *h6 = new TH1D("h6","MORE COMPRESSIBLE",100,-0.1,10.1);
-	TH1D *h7 = new TH1D("h7","Branch7 Entries",100,-0.1,10.1);
-	TH1D *h8 = new TH1D("h8","Branch8 Entries",100,-0.1,10.1);
-	TH1D *h9 = new TH1D("h9","Branch9 Entries",100,-0.1,10.1);
 	
-	//fill colors and axis naming
-	h5->SetFillColor(2);
-	h6->SetFillColor(3);
+	const Int_t NBins = 2000;
 	
-	h5->GetXaxis()->SetTitle("Entry Value");
-	h5->GetYaxis()->SetTitle("Events");
+	TH1D *h0 = new TH1D("h0","Branch0 Entries",NBins,-0.1,10.1);
+	TH1D *h1 = new TH1D("h1","Branch1 Entries",NBins,-0.1,10.1);
+	TH1D *h2 = new TH1D("h2","Branch2 Entries",NBins,-0.1,10.1);
+	TH1D *h3 = new TH1D("h3","Branch3 Entries",NBins,-0.1,10.1);
+	TH1D *h4 = new TH1D("h4","Branch4 Entries",NBins,-0.1,10.1);
+	TH1D *h5 = new TH1D("h5","Branch5 Entries",NBins,-0.1,10.1);
+	TH1D *h6 = new TH1D("h6","Branch6 Entries",NBins,-0.1,10.1);
+	TH1D *h7 = new TH1D("h7","Branch7 Entries",NBins,-0.1,10.1);
+	TH1D *h8 = new TH1D("h8","Branch8 Entries",NBins,-0.1,10.1);
+	TH1D *h9 = new TH1D("h9","Branch9 Entries",NBins,-0.1,10.1);
 	
-	h6->GetXaxis()->SetTitle("Entry Value");
-	h6->GetYaxis()->SetTitle("Events");
 	
 std::cout << "writing file and tree..." << std::endl;
 	
@@ -393,7 +389,7 @@ void read() {
 
 
 int main() {
-  LargeAutoFlushTest();
+  ImprovedAutoFlushTest();
   return 0; 
 }
 
