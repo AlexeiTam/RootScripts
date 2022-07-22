@@ -265,13 +265,13 @@ std::cout << "initializing branches..." << std::endl;
 		N5TotBytes = n5->GetTotBytes();
 		A5TotBytes = a5->GetTotBytes();
 	
-		N5Count = (N5TotBytes)/(N5Size);
-		A5Count = (A5TotBytes)/(A5Size);
-	
-		//Compression
 		N5TotZipBytes = n5->GetZipBytes();
 		A5TotZipBytes = a5->GetZipBytes();
 	
+		N5Count = (N5TotZipBytes)/(N5Size);
+		A5Count = (A5TotZipBytes)/(A5Size);
+	
+		//Compression
 		N5Comp = (N5TotBytes)/(N5TotZipBytes);
 		A5Comp = (A5TotBytes)/(A5TotZipBytes);
 	
@@ -286,8 +286,8 @@ std::cout << "initializing branches..." << std::endl;
 	tree2->Print();
 	
 	std::cout << "Predicting N5, A5 Basket Counts, Sizes, and Compression:" << std::endl;
-	std::cout << "N5 Count:" << N5Count << "..." << "N5 Basket Size" << N5Size << "..." << "N5 Compression" << N5Comp << std::endl;
-	std::cout << "A5 Count:" << A5Count << "..." << "A5 Basket Size" << A5Size << "..." << "A5 Compression" << A5Comp << std::endl;
+	std::cout << "N5 Count:" << N5Count << "..." << "N5 Basket Size:" << N5Size << "..." << "N5 Compression:" << N5Comp << std::endl;
+	std::cout << "A5 Count:" << A5Count << "..." << "A5 Basket Size:" << A5Size << "..." << "A5 Compression:" << A5Comp << std::endl;
 	
 	//draw histograms
 	cnvs->Update();
