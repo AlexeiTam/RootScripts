@@ -24,8 +24,8 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
-	TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
-	gStyle->SetOptStat(0);
+	//TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
+	//gStyle->SetOptStat(0);
 	
 	//creating histograms
 	
@@ -292,7 +292,7 @@ std::cout << "initializing branches..." << std::endl;
 	cnvs->Update();
 	cnvs->Draw();
 	
-	cnvs->Update();
+	//cnvs->Update();
 	//? Is there a way to initialize this?
 	//cnvs->SaveAs("FirstTreeCanvas.pdf");
 }
