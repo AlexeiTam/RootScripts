@@ -242,7 +242,10 @@ std::cout << "initializing branches..." << std::endl;
 	tree2->Write();
 	
 	std::cout <<"autof = " << NewAutoF << std::endl;
-	//TEST: give branch a pointer, 
+	//TEST: give branch a pointer,
+	TBranch *n5 = 0;
+	TBranch *a5 = 0;
+	
 	tree1->SetBranchAddress("N5",&v0,&n5);
 	tree2->SetBranchAddress("A5",&v0,&a5);
 	
