@@ -44,7 +44,7 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	TH1D *h8 = new TH1D("h8","Branch8 Entries",NBins,-0.1,10.1);
 	TH1D *h9 = new TH1D("h9","Branch9 Entries",NBins,-0.1,10.1);
 	
-//const Int_t NLabels = 20; //NLabels = # of NT Branches + # of AT Branches
+const Int_t NLabels = 20; //NLabels = # of NT Branches + # of AT Branches
 //const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N100","A100","N200","A200","N500","A500","N750","A750","N1000","A1000","N2000","A2000"};
 	
 	//TH1D *histSize = new TH1D("histSize","Branch Sizes",20,0,2001); //"NBins = 2*Num. of Branches, xmin = Vector length of smallest branch, xmax = sim. to xmin
@@ -471,7 +471,7 @@ std::cout << "initializing branches..." << std::endl;
 			grComp->SetPoint(i+1,VecSize[i]+0.5,AComp[i]);
 		}
 	
-	grNComp->Draw("AB");
+	grComp->Draw("AB");
 	
 	
 	
