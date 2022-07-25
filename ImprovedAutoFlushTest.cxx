@@ -456,8 +456,8 @@ std::cout << "initializing branches..." << std::endl;
 			grSize->SetPoint(i+1,VecSize[i]-0.5,NSize[i]);
 			grSize->SetPoint(i+1,VecSize[i]+0.5,ASize[i]);
 		}
-	
-		//grSize->Draw("*");
+		
+		grSize->Draw("sameB");
 	
 			 
 	
@@ -473,7 +473,7 @@ std::cout << "initializing branches..." << std::endl;
 			grComp->SetPoint(i+1,VecSize[i]+0.5,AComp[i]);
 		}
 	
-	//grComp->Draw("*");
+	grComp->Draw("sameB");
 	
 	
 	
