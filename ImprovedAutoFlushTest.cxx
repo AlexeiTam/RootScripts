@@ -13,12 +13,9 @@
 //void create() {
 
 void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000){
-	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
-	//GOAL2: scale down events, more dramatically change NewAutoF
 	//create file and tree
 	
 				//ISSUES
-				//!!BASKET SIZE, COMPRESSION CX CALCULATIONS WORKING
 				//!!BASKET COUNTER NOT WORKING
 	
 	//creating canvas
@@ -28,8 +25,9 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
-	//TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
-	//gStyle->SetOptStat(0);
+	TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
+	cnvs2->Divide(2,1)
+	gStyle->SetOptStat(0);
 	
 	//creating histograms
 	
@@ -249,11 +247,49 @@ std::cout << "initializing branches..." << std::endl;
 	
 	std::cout <<"autof = " << NewAutoF << std::endl;
 	//TEST: give branch a pointer,
-	TBranch *n1;
-	TBranch *a1;
+	TBranch *n1 = 0;
+	TBranch *n10 = 0;
+	TBranch *n25 = 0;
+	TBranch *n50 = 0;
+	TBranch *n100 = 0;
+	TBranch *n200 = 0;
+	TBranch *n500 = 0;
+	TBranch *n750 = 0;
+	TBranch *n1000 = 0;
+	TBranch *n2000 = 0;
+	
+	TBranch *a1 = 0;
+	TBranch *a10 = 0;
+	TBranch *a25 = 0;
+	TBranch *a50 = 0;
+	TBranch *a100 = 0;
+	TBranch *a200 = 0;
+	TBranch *a500 = 0;
+	TBranch *a750 = 0;
+	TBranch *a1000 = 0;
+	TBranch *a2000 = 0;
 	
 	tree1->SetBranchAddress("N1",&v0,&n1);
+	tree1->SetBranchAddress("N10",&v1,&n10);
+	tree1->SetBranchAddress("N25",&v2,&n25);
+	tree1->SetBranchAddress("N50",&v3,&n50);
+	tree1->SetBranchAddress("N100",&v4,&n100);
+	tree1->SetBranchAddress("N200",&v5,&n200);
+	tree1->SetBranchAddress("N500",&v6,&n500);
+	tree1->SetBranchAddress("N750",&v7,&n750);
+	tree1->SetBranchAddress("N1000",&v8,&n1000);
+	tree1->SetBranchAddress("N2000",&v9,&n2000);
+	
 	tree2->SetBranchAddress("A1",&v0,&a1);
+	tree2->SetBranchAddress("A10",&v1,&a10);
+	tree2->SetBranchAddress("A25",&v2,&a25);
+	tree2->SetBranchAddress("A50",&v3,&a50);
+	tree2->SetBranchAddress("A100",&v4,&a100);
+	tree2->SetBranchAddress("A200",&v5,&a200);
+	tree2->SetBranchAddress("A500",&v6,&a500);
+	tree2->SetBranchAddress("A750",&v7,&a750);
+	tree2->SetBranchAddress("A1000",&v8,&a1000);
+	tree2->SetBranchAddress("A2000",&v9,&a2000);
 	
 	//TEST: variables
 	Int_t N1Size, A1Size;
@@ -293,9 +329,6 @@ std::cout << "initializing branches..." << std::endl;
 	tree1->Print();
 	tree2->Print();
 	
-	std::cout << "Predicting N5, A5 Basket Sizes and Compression:" << std::endl;
-	std::cout << "N1 Basket Size:" << N1Size << "..." << "N1 Compression:" << N1Comp << std::endl;
-	std::cout << "A1 Basket Size:" << A1Size << "..." << "A1 Compression:" << A1Comp << std::endl;
 	
 	//draw histograms
 	cnvs->Update();
@@ -342,96 +375,7 @@ std::cout << "initializing branches..." << std::endl;
 	//cnvs->SaveAs("FirstTreeCanvas.pdf");
 }
 
-void read() {
-	
-	//Create canvas, histograms to visualize results later
-	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 800, 500);
-	cnvs->Divide(3,2);
-	gStyle->SetOptStat(0);
-	
-	TH1F *h0 = new TH1F("h0","Branch 0 Distributions",100,-1.1,1.1);
-	TH1F *h1 = new TH1F("h1","Branch 1 Distributions",100,-1.1,1.1);
-	TH1F *h2 = new TH1F("h2","Branch 2 Distributions",100,-1.1,1.1);
-	TH1F *h3 = new TH1F("h3","Branch 3 Distributions",100,-1.1,1.1);
-	TH1F *h4 = new TH1F("h4","Branch 4 Distributions",100,-1.1,1.1);
-	
-	
-	//opening file and giving it pointer "myFile"
-	
-	std::unique_ptr<TFile> myFile = std::make_unique<TFile>("BigTreeFile.root", "READ");
-			if(!myFile) { 
-			std::cout << "File Open Failed!" << std::endl;
-			return;
-			}
-	
-	//giving variables, branches a ptr
-	float var[5];
-	
-	TBranch *b0 = 0;
-	TBranch *b1 = 0;
-	TBranch *b2 = 0;
-	TBranch *b3 = 0;
-	TBranch *b4 = 0;
-	
-	//getting tree from file, giving it a ptr
-	
-	TTree *tree = (TTree*) myFile->Get("myTree");
-				if(!myFile) {
-				std::cout << "Can't open file to get tree!" << std::endl;
-				return;
-				}
-	
-	//Assigning branches
-	
-	tree->SetBranchAddress("branch0", &var[0], &b0);
-	tree->SetBranchAddress("branch1", &var[1], &b1);
-	tree->SetBranchAddress("branch2", &var[2], &b2);
-	tree->SetBranchAddress("branch3", &var[3], &b3);
-	tree->SetBranchAddress("branch4", &var[4], &b4);
-	
-	//getting tree entries, filling histograms
-	for(int i=0;i<tree->GetEntries();i++) {
-	tree->LoadTree(i);
-			
-			b0->GetEntry(i);
-			b1->GetEntry(i);
-			b2->GetEntry(i);
-			b3->GetEntry(i);
-			b4->GetEntry(i);
-		
-			h0->Fill(var[0]);
-			h1->Fill(var[1]);
-			h2->Fill(var[2]);
-			h3->Fill(var[3]);
-			h4->Fill(var[4]);
-	}
-	
-	//draw histograms
-	cnvs->Update();
-	
-	cnvs->cd(1);
-	h0->Draw();
-	
-	cnvs->cd(2);
-	h1->Draw();
-	
-	cnvs->cd(3);
-	h2->Draw();
-	
-	cnvs->cd(4);
-	h3->Draw();
-	
-	cnvs->cd(5);
-	h4->Draw();
 
-
-	myFile->Save();
-	myFile->Close();
-
-	cnvs->Update();
-	cnvs->SaveAs("FirstTreeCanvas.pdf");
-
-}
 
 //void write() {
 	//creates two trees with five branches, fills each with 1000 random numbers of different distributions
