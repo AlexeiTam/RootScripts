@@ -16,7 +16,7 @@ void ImprovedAutoFlushTest(Long64_t NewAutoF = -30000000){
 	//create file and tree
 	
 				//ISSUES
-				//!!BASKET COUNTER NOT WORKING
+				//!!BASKET COUNTER NOT WORKING, TAKEN OUT FOR NOW
 	
 	//creating canvas
 std::cout << "creating canvases and histograms..." << std::endl;
@@ -44,8 +44,19 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	TH1D *h8 = new TH1D("h8","Branch8 Entries",NBins,-0.1,10.1);
 	TH1D *h9 = new TH1D("h9","Branch9 Entries",NBins,-0.1,10.1);
 	
+const Int_t NLabels = 20; //NLabels = # of NT Branches + # of AT Branches
+const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N100","A100","N200","A200","N500","A500","N750","A750","N1000","A1000","N2000","A2000"};
+	
 	TH1D *histSize = new TH1D("histSize","Branch Sizes",20,0,2001); //"NBins = 2*Num. of Branches, xmin = Vector length of smallest branch, xmax = sim. to xmin
 	TH1D *histComp = new TH1D("histComp","Branch Compression",20,0,2001); //same as above
+
+	histSize->SetFillColor(38);
+	histComp->SetFillColor(48);
+	
+	for(i = 1; i <= NLabels; i++) {
+		histSize->GetXaxis()->SetBinLabel(i,Labels[i-1]);
+		histComp->GetXaxis()->SetBinLabel(i,Labels[i-1]);
+	}
 	
 std::cout << "writing file and tree..." << std::endl;
 	
@@ -287,8 +298,31 @@ std::cout << "initializing branches..." << std::endl;
 	tree1->Print();
 	tree2->Print();
 	
-	std::cout << "N1 Size:" << N1Size << "..." << "N1 Comp:" << N1Comp << std::endl;
-	std::cout << "A1 Size:" << A1Size << "..." << "A1 Comp:" << A1Comp << std::endl;
+	//filling size and comp. arrays
+	
+	Int_t Size[NLabels]; 
+	Float_t Comp[NLabels];
+	
+	Size[0] = N1Size; Size[1] = A1Size; Size[2] = N10Size; Size[3] = A10Size; Size[4] = N25Size; Size[5] = A25Size;
+	Size[6] = N50Size; Size[7] = A50Size;Size[8] = N100Size; Size[9] = A100Size;Size[10] = N200Size; Size[11] = A200Size;Size[12] = N500Size; Size[13] = A500Size; 
+	Size[14] = N750Size;Size[15] = A750Size;Size[16] = N1000Size; Size[17] = A1000Size; Size[18] = N2000Size; Size[19] = A2000Size;
+	
+	Comp[0] = N1Comp; Comp[1] = A1Comp; Comp[2] = N10Comp; Comp[3] = A10Comp; Comp[4] = N25Comp; Comp[5] = A25Comp;
+	Comp[6] = N50Comp; Comp[7] = A50Comp;Comp[8] = N100Comp; Comp[9] = A100Comp;Comp[10] = N200Comp; Comp[11] = A200Comp;Comp[12] = N500Comp; Comp[13] = A500Comp; 
+	Comp[14] = N750Comp;Comp[15] = A750Comp;Comp[16] = N1000Comp; Comp[17] = A1000Comp; Comp[18] = N2000Comp; Comp[19] = A2000Comp;
+	 
+	//drawing histograms
+	cnvs2->cd(1);
+	histSize->Draw();
+	TGraph *grSize = new TGraph(NLabels);
+	for(int i = 0; i < NLabels; i++) {
+		grSize->SetPoint(i+1,	
+	}
+	
+	
+	
+	cnvs2->cd(2):
+	histComp->Draw();
 	
 	
 	//draw histograms
