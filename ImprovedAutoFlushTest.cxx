@@ -53,10 +53,13 @@ const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N1
 	histSize->SetFillColor(38);
 	histComp->SetFillColor(48);
 	
-	for(i = 1; i <= NLabels; i++) {
-		histSize->GetXaxis()->SetBinLabel(i,Labels[i-1]);
-		histComp->GetXaxis()->SetBinLabel(i,Labels[i-1]);
-	}
+	histSize->GetXaxis()->SetTitle("Entries per Row");
+	histComp->GetXaxis()->SetTitle("Entries per Row");
+	
+	histSize->GetYaxis()->SetTitle("Basket Size[kB]");
+	histComp->GetYaxis()->SetTitle("CX");
+	
+	
 	
 std::cout << "writing file and tree..." << std::endl;
 	
@@ -299,30 +302,63 @@ std::cout << "initializing branches..." << std::endl;
 	tree2->Print();
 	
 	//filling size and comp. arrays
+	Int_t nlabels = NLabels/2;
+	Int_t NSize[nlabels], ASize[nlabels], VecSize[nlabels]; 
+	Float_t NComp[nlabels], AComp[nlabels];
 	
-	Int_t Size[NLabels]; 
-	Float_t Comp[NLabels];
+	VecSize[0] = 1; VecSize[1] = 10; VecSize[2] = 25; VecSize[3] = 50; VecSize[4] = 100;
+	VecSize[5] = 200; VecSize[6] = 500; VecSize[7] = 750; VecSize[8] = 1000; VecSize[9] = 2000;
 	
-	Size[0] = N1Size; Size[1] = A1Size; Size[2] = N10Size; Size[3] = A10Size; Size[4] = N25Size; Size[5] = A25Size;
-	Size[6] = N50Size; Size[7] = A50Size;Size[8] = N100Size; Size[9] = A100Size;Size[10] = N200Size; Size[11] = A200Size;Size[12] = N500Size; Size[13] = A500Size; 
-	Size[14] = N750Size;Size[15] = A750Size;Size[16] = N1000Size; Size[17] = A1000Size; Size[18] = N2000Size; Size[19] = A2000Size;
+	NSize[0] = N1Size; NSize[1] = N10Size; NSize[2] = N25Size; NSize[3] = N50Size; NSize[4] = N100Size; NSize[5] = N200Size; NSize[6] = N500Size;  
+	NSize[7] = N750Size; NSize[8] = N1000Size; NSize[9] = N2000Size;
 	
-	Comp[0] = N1Comp; Comp[1] = A1Comp; Comp[2] = N10Comp; Comp[3] = A10Comp; Comp[4] = N25Comp; Comp[5] = A25Comp;
-	Comp[6] = N50Comp; Comp[7] = A50Comp;Comp[8] = N100Comp; Comp[9] = A100Comp;Comp[10] = N200Comp; Comp[11] = A200Comp;Comp[12] = N500Comp; Comp[13] = A500Comp; 
-	Comp[14] = N750Comp;Comp[15] = A750Comp;Comp[16] = N1000Comp; Comp[17] = A1000Comp; Comp[18] = N2000Comp; Comp[19] = A2000Comp;
+	ASize[0] = A1Size; ASize[1] = A10Size; ASize[2] = A25Size; ASize[3] = A50Size; ASize[4] = A100Size; ASize[5] = A200Size; ASize[6] = A500Size;  
+	ASize[7] = A750Size; ASize[8] = A1000Size; ASize[9] = A2000Size;
+	
+	NComp[0] = N1Comp; NComp[1] = N10Comp; NComp[2] = N25Comp; NComp[3] = N50Comp; NComp[4] = N100Comp; NComp[5] = N200Comp; NComp[6] = N500Comp;  
+	NComp[7] = N750Comp; NComp[8] = N1000Comp; NComp[9] = N2000Comp;
+	
+	AComp[0] = A1Comp; AComp[1] = A10Comp; AComp[2] = A25Comp; AComp[3] = A50Comp; AComp[4] = A100Comp; AComp[5] = A200Comp; AComp[6] = A500Comp;  
+	AComp[7] = A750Comp; AComp[8] = A1000Comp; AComp[9] = A2000Comp;
+	
+	//convert size to kB:
+	for(int i = 0; i < nlabels; i++) {
+		NSize[i] = NSize[i]/1000;
+		ASize[i] = ASize[i]/1000;
+	}
+	
 	 
 	//drawing histograms
 	cnvs2->cd(1);
 	histSize->Draw();
-	TGraph *grSize = new TGraph(NLabels);
-	for(int i = 0; i < NLabels; i++) {
-		grSize->SetPoint(i+1,	
-	}
+	
+	TGraph *grNSize = new TGraph(nlabels);
+	TGraph *grASize = new TGraph(nlabels);
+	
+		for(int i = 0; i < nlabels ; i++) {
+			grNSize->SetPoint(i+1,VecSize[i]-0.5,NSize[i]);
+			grASize->SetPoint(i+1,VecSize[i]+0.5,ASize[i]);
+		}
+	
+	grNSize->Draw("sameAB");
+	grASize->Draw("sameAB");
+			 
 	
 	
 	
 	cnvs2->cd(2):
 	histComp->Draw();
+	
+	TGraph *grNComp = new TGraph(nlabels);
+	TGraph *grAComp = new TGraph(nlabels);
+	
+		for(int i = 0; i < nlabels ; i++) {
+			grNComp->SetPoint(i+1,VecSize[i]-0.5,NComp[i]);
+			grAComp->SetPoint(i+1,VecSize[i]+0.5,AComp[i]);
+		}
+	
+	grNComp->Draw("sameAB");
+	grAComp->Draw("sameAB");
 	
 	
 	//draw histograms
