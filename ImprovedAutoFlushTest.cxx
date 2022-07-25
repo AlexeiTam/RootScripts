@@ -274,8 +274,8 @@ std::cout << "initializing branches..." << std::endl;
 	Double_t N100TotZipBytes, A100TotZipBytes, N200TotZipBytes, A200TotZipBytes, N500TotZipBytes, A500TotZipBytes, N750TotZipBytes, A750TotZipBytes,
 	Double_t N1000TotZipBytes, A1000TotZipBytes, N2000TotZipBytes, A2000TotZipBytes;
 	
-	Double_t N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp,
-	Double_t N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp,;
+	Double_t N1Comp, A1Comp, N10Comp, A10Comp, N25Comp, A25Comp, N50Comp, A50Comp, N100Comp, A100Comp, N200Comp, A200Comp,
+	Double_t N500Comp, A500Comp, N750Comp, A750Comp, N1000Comp, A1000Comp, N2000Comp, A2000Comp;
 	
 	//TEST: calculations
 		//Basket Sizes
