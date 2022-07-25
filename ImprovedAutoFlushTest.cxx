@@ -25,9 +25,9 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
-	TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
-	cnvs2->Divide(2,1)
-	gStyle->SetOptStat(0);
+	//TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
+	//cnvs2->Divide(2,1)
+	//gStyle->SetOptStat(0);
 	
 	//creating histograms
 	
@@ -79,7 +79,7 @@ std::cout << "initializing vectors..." << std::endl;
 	
 std::cout << "initializing branches..." << std::endl;
 	
-	tree1->Branch("N1", &v0);
+	TBranch *n1 = tree1->Branch("N1", &v0);
 	tree1->Branch("N10", &v1);
 	tree1->Branch("N25", &v2);
 	tree1->Branch("N50", &v3);
@@ -247,7 +247,7 @@ std::cout << "initializing branches..." << std::endl;
 	
 	std::cout <<"autof = " << NewAutoF << std::endl;
 	//TEST: give branch a pointer,
-	TBranch *n1 = 0;
+	//TBranch *n1 = 0;
 	TBranch *n10 = 0;
 	TBranch *n25 = 0;
 	TBranch *n50 = 0;
@@ -269,7 +269,7 @@ std::cout << "initializing branches..." << std::endl;
 	TBranch *a1000 = 0;
 	TBranch *a2000 = 0;
 	
-	tree1->SetBranchAddress("N1",&v0,&n1);
+	//tree1->SetBranchAddress("N1",&v0,&n1);
 	tree1->SetBranchAddress("N10",&v1,&n10);
 	tree1->SetBranchAddress("N25",&v2,&n25);
 	tree1->SetBranchAddress("N50",&v3,&n50);
@@ -328,6 +328,9 @@ std::cout << "initializing branches..." << std::endl;
 	std::cout << "Print logs:" << std::endl;
 	tree1->Print();
 	tree2->Print();
+	
+	std::cout << "N1 Size:" << N1Size << "..." << "N1 Comp:" << N1Comp << std::endl;
+	std::cout << "A1 Size:" << A1Size << "..." << "A1 Comp:" << A1Comp << std::endl;
 	
 	
 	//draw histograms
