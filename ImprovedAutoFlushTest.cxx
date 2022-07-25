@@ -453,8 +453,8 @@ std::cout << "initializing branches..." << std::endl;
 	TGraph *grSize = new TGraph(NLabels);
 	
 		for(int i = 0; i < nlabels ; i++) {
-			grSize->AddPoint(i+1,VecSize[i]-0.5,NSize[i]);
-			grSize->AddPoint(i+1,VecSize[i]+0.5,ASize[i]);
+			grSize->AddPoint(VecSize[i]-0.5,NSize[i]);
+			grSize->AddPoint(VecSize[i]+0.5,ASize[i]);
 		}
 		
 		grSize->Draw("sameB");
