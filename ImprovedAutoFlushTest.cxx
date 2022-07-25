@@ -469,8 +469,8 @@ std::cout << "initializing branches..." << std::endl;
 	TGraph *grComp = new TGraph(NLabels);
 	
 		for(int i = 0; i < nlabels ; i++) {
-			grComp->AddPoint(i+1,VecSize[i]-0.5,NComp[i]);
-			grComp->AddPoint(i+1,VecSize[i]+0.5,AComp[i]);
+			grComp->AddPoint(VecSize[i]-0.5,NComp[i]);
+			grComp->AddPoint(VecSize[i]+0.5,AComp[i]);
 		}
 	
 	grComp->Draw("sameB");
