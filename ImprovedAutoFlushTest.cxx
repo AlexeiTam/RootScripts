@@ -25,9 +25,10 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
-	TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
+	TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 2400, 2000);
 	cnvs2->Divide(2,1);
 	gStyle->SetOptStat(0);
+
 	
 	//creating histograms
 	
