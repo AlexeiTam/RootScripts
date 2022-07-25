@@ -26,7 +26,7 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	gStyle->SetOptStat(0);
 	
 	TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
-	cnvs2->Divide(2,1)
+	cnvs2->Divide(2,1);
 	gStyle->SetOptStat(0);
 	
 	//creating histograms
@@ -264,25 +264,114 @@ std::cout << "initializing branches..." << std::endl;
 	std::cout <<"autof = " << NewAutoF << std::endl;
 	
 	//TEST: variables
-	Int_t N1Size, A1Size;
+	Int_t N1Size, A1Size, N10Size, A10Size, N25Size, A25Size, N50Size, A50Size, N100Size, A100Size, 
+	Int_t N200Size, A200Size, N500Size, A500Size, N750Size, A750Size, N1000Size, A1000Size, N2000Size, A2000Size;
 	//Double_t N5Count, A5Count;
-	Double_t N1TotBytes, A1TotBytes;
-	Double_t N1TotZipBytes, A1TotZipBytes;
-	Double_t N1Comp, A1Comp;
+	Double_t N1TotBytes, A1TotBytes, N10TotBytes, A10TotBytes, N25TotBytes, A25TotBytes, N50TotBytes, A50TotBytes, N100TotBytes, A100TotBytes, 
+	Double_t N200TotBytes, A200TotBytes, N500TotBytes, A500TotBytes, N750TotBytes, A750TotBytes, N1000TotBytes, A1000TotBytes, N2000TotBytes, A2000TotBytes;
+	
+	Double_t N1TotZipBytes, A1TotZipBytes, N10TotZipBytes, A10TotZipBytes, N25TotZipBytes, A25TotZipBytes, N50TotZipBytes, A50TotZipBytes;
+	Double_t N100TotZipBytes, A100TotZipBytes, N200TotZipBytes, A200TotZipBytes, N500TotZipBytes, A500TotZipBytes, N750TotZipBytes, A750TotZipBytes,
+	Double_t N1000TotZipBytes, A1000TotZipBytes, N2000TotZipBytes, A2000TotZipBytes;
+	
+	Double_t N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp,
+	Double_t N1Comp, A1Comp, N1Comp, A1Comp, N1Comp, A1Comp,;
 	
 	//TEST: calculations
 		//Basket Sizes
 		N1Size = n1->GetBasketSize();
 		A1Size = a1->GetBasketSize();
+		
+		N10Size = n10->GetBasketSize();
+		A10Size = a10->GetBasketSize();
+	
+		N25Size = n25->GetBasketSize();
+		A25Size = a25->GetBasketSize();
+	
+		N50Size = n50->GetBasketSize();
+		A50Size = a50->GetBasketSize();
+	
+		N100Size = n100->GetBasketSize();
+		A100Size = a100->GetBasketSize();
+	
+		N200Size = n200->GetBasketSize();
+		A200Size = a200->GetBasketSize();
+	
+		N500Size = n500->GetBasketSize();
+		A500Size = a500->GetBasketSize();
+	
+		N750Size = n750->GetBasketSize();
+		A750Size = a750->GetBasketSize();
+	
+		N1000Size = n1000->GetBasketSize();
+		A1000Size = a1000->GetBasketSize();
+	
+		N2000Size = n2000->GetBasketSize();
+		A2000Size = a2000->GetBasketSize();
 	
 		//Basket Counts
 		N1TotBytes = n1->GetTotBytes();
 		A1TotBytes = a1->GetTotBytes();
 	
+		N10TotBytes = n10->GetTotBytes();
+		A10TotBytes = a10->GetTotBytes();
+	
+		N25TotBytes = n25->GetTotBytes();
+		A25TotBytes = a25->GetTotBytes();
+	
+		N50TotBytes = n50->GetTotBytes();
+		A50TotBytes = a50->GetTotBytes();
+	
+		N100TotBytes = n100->GetTotBytes();
+		A100TotBytes = a100->GetTotBytes();
+	
+		N200TotBytes = n200->GetTotBytes();
+		A200TotBytes = a200->GetTotBytes();
+	
+		N500TotBytes = n500->GetTotBytes();
+		A500TotBytes = a500->GetTotBytes();
+	
+		N750TotBytes = n750->GetTotBytes();
+		A750TotBytes = a750->GetTotBytes();
+	
+		N1000TotBytes = n1000->GetTotBytes();
+		A1000TotBytes = a1000->GetTotBytes();
+	
+		N2000TotBytes = n2000->GetTotBytes();
+		A2000TotBytes = a2000->GetTotBytes();
+	
+	
 		N1TotZipBytes = n1->GetZipBytes();
 		A1TotZipBytes = a1->GetZipBytes();
 	
-		//??Why are basket counts not working??
+		N10TotBytes = n10->GetZipBytes();
+		A10TotBytes = a10->GetZipBytes();
+	
+		N25TotBytes = n25->GetZipBytes();
+		A25TotBytes = a25->GetZipBytes();
+	
+		N50TotBytes = n50->GetZipBytes();
+		A50TotBytes = a50->GetZipBytes();
+	
+		N100TotBytes = n100->GetZipBytes();
+		A100TotBytes = a100->GetZipBytes();
+	
+		N200TotBytes = n200->GetZipBytes();
+		A200TotBytes = a200->GetZipBytes();
+	
+		N500TotBytes = n500->GetZipBytes();
+		A500TotBytes = a500->GetZipBytes();
+	
+		N750TotBytes = n750->GetZipBytes();
+		A750TotBytes = a750->GetZipBytes();
+	
+		N1000TotBytes = n1000->GetZipBytes();
+		A1000TotBytes = a1000->GetZipBytes();
+	
+		N2000TotBytes = n2000->GetZipBytes();
+		A2000TotBytes = a2000->GetZipBytes();
+	
+		//basket count: fix later
 	
 		//N5Count = 1 + (N5TotBytes/N5Size);
 		//A5Count = 1 + (A5TotBytes/A5Size);
@@ -290,6 +379,33 @@ std::cout << "initializing branches..." << std::endl;
 		//Compression
 		N1Comp = (N1TotBytes)/(N1TotZipBytes);
 		A1Comp = (A1TotBytes)/(A1TotZipBytes);
+	
+		N10Comp = (N10TotBytes)/(N10TotZipBytes);
+		A10Comp = (A10TotBytes)/(A10TotZipBytes);
+	
+		N25Comp = (N25TotBytes)/(N25TotZipBytes);
+		A25Comp = (A25TotBytes)/(A25TotZipBytes);
+	
+		N50Comp = (N50TotBytes)/(N50TotZipBytes);
+		A50Comp = (A50TotBytes)/(A50TotZipBytes);
+	
+		N100Comp = (N100TotBytes)/(N100TotZipBytes);
+		A100Comp = (A100TotBytes)/(A100TotZipBytes);
+	
+		N200Comp = (N200TotBytes)/(N200TotZipBytes);
+		A200Comp = (A200TotBytes)/(A200TotZipBytes);
+	
+		N500Comp = (N500TotBytes)/(N500TotZipBytes);
+		A500Comp = (A500TotBytes)/(A500TotZipBytes);
+	
+		N750Comp = (N750TotBytes)/(N750TotZipBytes);
+		A750Comp = (A750TotBytes)/(A750TotZipBytes);
+	
+		N1000Comp = (N1000TotBytes)/(N1000TotZipBytes);
+		A1000Comp = (A1000TotBytes)/(A1000TotZipBytes);
+	
+		N2000Comp = (N2000TotBytes)/(N2000TotZipBytes);
+		A2000Comp = (A2000TotBytes)/(A2000TotZipBytes);
 	
 	
 	//std::cout << "Normal Tree Scan:" << std::endl;
@@ -301,7 +417,7 @@ std::cout << "initializing branches..." << std::endl;
 	tree1->Print();
 	tree2->Print();
 	
-	//filling size and comp. arrays
+	//filling arrays to store Basket Size and Compression
 	Int_t nlabels = NLabels/2;
 	Int_t NSize[nlabels], ASize[nlabels], VecSize[nlabels]; 
 	Float_t NComp[nlabels], AComp[nlabels];
@@ -328,7 +444,7 @@ std::cout << "initializing branches..." << std::endl;
 	}
 	
 	 
-	//drawing histograms
+	//Basket Size and Compression graphs
 	cnvs2->cd(1);
 	histSize->Draw();
 	
