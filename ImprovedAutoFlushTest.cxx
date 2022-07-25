@@ -241,16 +241,6 @@ std::cout << "initializing branches..." << std::endl;
 		tree1->Fill();
 		tree2->Fill();
 		
-		if(NewAutoF > 0 && i == NewAutoF - 1) {
-			N10TotBytes = n10->GetTotBytes();
-			N10Size = n10->GetBasketSize();
-			N10Count += 1+(Int_t)(N10TotBytes/N10Size);
-			
-			A10TotBytes = a10->GetTotBytes();
-			A10Size = a10->GetBasketSize();
-			A10Count += 1+(Int_t)(A10TotBytes/A10Size);
-		}
-		
 	}
 
 	//writing tree header and saving file
