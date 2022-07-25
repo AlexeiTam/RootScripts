@@ -46,19 +46,20 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	TH1D *h9 = new TH1D("h9","Branch9 Entries",NBins,-0.1,10.1);
 	
 const Int_t NLabels = 20; //NLabels = # of NT Branches + # of AT Branches
-//const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N100","A100","N200","A200","N500","A500","N750","A750","N1000","A1000","N2000","A2000"};
+const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N100","A100","N200","A200","N500","A500","N750","A750","N1000","A1000","N2000","A2000"};
 	
-	//TH1D *histSize = new TH1D("histSize","Branch Sizes",20,0,2001); //"NBins = 2*Num. of Branches, xmin = Vector length of smallest branch, xmax = sim. to xmin
-	//TH1D *histComp = new TH1D("histComp","Branch Compression",20,0,2001); //same as above
+	TH2D *histSize = new TH1D("histSize","Branch Sizes",20,0,2001,20,0,2560); 
+	//"NBins = 2*Num. of Branches, xmin = Vector length of smallest branch, xmax = sim. to xmin, ymin = 0; ymax = largest possible basket size
+	TH2D *histComp = new TH1D("histComp","Branch Compression",20,0,2001,20,0,100); //same as above
 
 	//histSize->SetFillColor(38);
 	//histComp->SetFillColor(48);
 	
-	//histSize->GetXaxis()->SetTitle("Entries per Row");
-	//histComp->GetXaxis()->SetTitle("Entries per Row");
+	histSize->GetXaxis()->SetTitle("Entries per Row");
+	histComp->GetXaxis()->SetTitle("Entries per Row");
 	
-	//histSize->GetYaxis()->SetTitle("Basket Size[kB]");
-	//histComp->GetYaxis()->SetTitle("CX");
+	histSize->GetYaxis()->SetTitle("Basket Size[kB]");
+	histComp->GetYaxis()->SetTitle("CX");
 	
 	
 	
@@ -447,7 +448,7 @@ std::cout << "initializing branches..." << std::endl;
 	 
 	//Basket Size and Compression graphs
 	cnvs2->cd(1);
-	//histSize->Draw();
+	histSize->Draw();
 	
 	TGraph *grSize = new TGraph(NLabels);
 	
@@ -456,14 +457,14 @@ std::cout << "initializing branches..." << std::endl;
 			grSize->SetPoint(i+1,VecSize[i]+0.5,ASize[i]);
 		}
 	
-		grSize->Draw("*");
+		//grSize->Draw("*");
 	
 			 
 	
 	
 	
 	cnvs2->cd(2);
-	//histComp->Draw();
+	histComp->Draw();
 	
 	TGraph *grComp = new TGraph(NLabels);
 	
@@ -472,7 +473,7 @@ std::cout << "initializing branches..." << std::endl;
 			grComp->SetPoint(i+1,VecSize[i]+0.5,AComp[i]);
 		}
 	
-	grComp->Draw("*");
+	//grComp->Draw("*");
 	
 	
 	
