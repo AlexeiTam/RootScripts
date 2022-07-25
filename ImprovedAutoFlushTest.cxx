@@ -25,9 +25,9 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
-	//TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
-	//cnvs2->Divide(2,1)
-	//gStyle->SetOptStat(0);
+	TCanvas *cnvs2 = new TCanvas("cnvs2","Tree Print", 10, 10, 1200, 800);
+	cnvs2->Divide(2,1)
+	gStyle->SetOptStat(0);
 	
 	//creating histograms
 	
@@ -44,6 +44,8 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	TH1D *h8 = new TH1D("h8","Branch8 Entries",NBins,-0.1,10.1);
 	TH1D *h9 = new TH1D("h9","Branch9 Entries",NBins,-0.1,10.1);
 	
+	TH1D *histSize = new TH1D("histSize","Branch Sizes",20,0,2001); //"NBins = 2*Num. of Branches, xmin = Vector length of smallest branch, xmax = sim. to xmin
+	TH1D *histComp = new TH1D("histComp","Branch Compression",20,0,2001); //same as above
 	
 std::cout << "writing file and tree..." << std::endl;
 	
