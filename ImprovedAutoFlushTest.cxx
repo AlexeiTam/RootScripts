@@ -80,27 +80,27 @@ std::cout << "initializing vectors..." << std::endl;
 std::cout << "initializing branches..." << std::endl;
 	
 	TBranch *n1 = tree1->Branch("N1", &v0);
-	tree1->Branch("N10", &v1);
-	tree1->Branch("N25", &v2);
-	tree1->Branch("N50", &v3);
-	tree1->Branch("N100", &v4);
-	tree1->Branch("N200", &v5);
-	tree1->Branch("N500", &v6);
-	tree1->Branch("N750", &v7);
-	tree1->Branch("N1000", &v8);
-	tree1->Branch("N2000", &v9);
+	TBranch *n10 = tree1->Branch("N10", &v1);
+	TBranch *n25 = tree1->Branch("N25", &v2);
+	TBranch *n50 = tree1->Branch("N50", &v3);
+	TBranch *n100 = tree1->Branch("N100", &v4);
+	TBranch *n200 = tree1->Branch("N200", &v5);
+	TBranch *n500 = tree1->Branch("N500", &v6);
+	TBranch *n750 = tree1->Branch("N750", &v7);
+	TBranch *n1000 = tree1->Branch("N1000", &v8);
+	TBranch *n2000 = tree1->Branch("N2000", &v9);
 	
 	
-	tree2->Branch("A1", &v0);
-	tree2->Branch("A10", &v1);
-	tree2->Branch("A25", &v2);
-	tree2->Branch("A50", &v3);
-	tree2->Branch("A100", &v4);
-	tree2->Branch("A200", &v5);
-	tree2->Branch("A500", &v6);
-	tree2->Branch("A750", &v7);
-	tree2->Branch("A1000", &v8);
-	tree2->Branch("A2000", &v9);
+	TBranch *a1 = tree2->Branch("A1", &v0);
+	TBranch *a10 = tree2->Branch("A10", &v1);
+	TBranch *a25 = tree2->Branch("A25", &v2);
+	TBranch *a50 = tree2->Branch("A50", &v3);
+	TBranch *a100 = tree2->Branch("A100", &v4);
+	TBranch *a200 = tree2->Branch("A200", &v5);
+	TBranch *a500 = tree2->Branch("A500", &v6);
+	TBranch *a750 = tree2->Branch("A750", &v7);
+	TBranch *a1000 = tree2->Branch("A1000", &v8);
+	TBranch *a2000 = tree2->Branch("A2000", &v9);
 	
 	
 
@@ -246,50 +246,6 @@ std::cout << "initializing branches..." << std::endl;
 	tree2->Write();
 	
 	std::cout <<"autof = " << NewAutoF << std::endl;
-	//TEST: give branch a pointer,
-	//TBranch *n1 = 0;
-	TBranch *n10 = 0;
-	TBranch *n25 = 0;
-	TBranch *n50 = 0;
-	TBranch *n100 = 0;
-	TBranch *n200 = 0;
-	TBranch *n500 = 0;
-	TBranch *n750 = 0;
-	TBranch *n1000 = 0;
-	TBranch *n2000 = 0;
-	
-	TBranch *a1 = 0;
-	TBranch *a10 = 0;
-	TBranch *a25 = 0;
-	TBranch *a50 = 0;
-	TBranch *a100 = 0;
-	TBranch *a200 = 0;
-	TBranch *a500 = 0;
-	TBranch *a750 = 0;
-	TBranch *a1000 = 0;
-	TBranch *a2000 = 0;
-	
-	//tree1->SetBranchAddress("N1",&v0,&n1);
-	tree1->SetBranchAddress("N10",&v1,&n10);
-	tree1->SetBranchAddress("N25",&v2,&n25);
-	tree1->SetBranchAddress("N50",&v3,&n50);
-	tree1->SetBranchAddress("N100",&v4,&n100);
-	tree1->SetBranchAddress("N200",&v5,&n200);
-	tree1->SetBranchAddress("N500",&v6,&n500);
-	tree1->SetBranchAddress("N750",&v7,&n750);
-	tree1->SetBranchAddress("N1000",&v8,&n1000);
-	tree1->SetBranchAddress("N2000",&v9,&n2000);
-	
-	tree2->SetBranchAddress("A1",&v0,&a1);
-	tree2->SetBranchAddress("A10",&v1,&a10);
-	tree2->SetBranchAddress("A25",&v2,&a25);
-	tree2->SetBranchAddress("A50",&v3,&a50);
-	tree2->SetBranchAddress("A100",&v4,&a100);
-	tree2->SetBranchAddress("A200",&v5,&a200);
-	tree2->SetBranchAddress("A500",&v6,&a500);
-	tree2->SetBranchAddress("A750",&v7,&a750);
-	tree2->SetBranchAddress("A1000",&v8,&a1000);
-	tree2->SetBranchAddress("A2000",&v9,&a2000);
 	
 	//TEST: variables
 	Int_t N1Size, A1Size;
