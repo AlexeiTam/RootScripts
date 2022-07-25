@@ -60,7 +60,7 @@ std::cout << "writing file and tree..." << std::endl;
 	
 std::cout << "initializing vectors..." << std::endl;
 	
-	const Int_t NEvents = 10000;	//number of events: 10,000
+	const Int_t NEvents = 1000;	//number of events: 1,000
 	const Int_t N0 = 1;
 	const Int_t N1 = 10;
 	const Int_t N2 = 25;
@@ -81,28 +81,28 @@ std::cout << "initializing vectors..." << std::endl;
 	
 std::cout << "initializing branches..." << std::endl;
 	
-	tree1->Branch("N5", &v0);
+	tree1->Branch("N1", &v0);
 	tree1->Branch("N10", &v1);
-	tree1->Branch("N20", &v2);
+	tree1->Branch("N25", &v2);
 	tree1->Branch("N50", &v3);
 	tree1->Branch("N100", &v4);
 	tree1->Branch("N200", &v5);
 	tree1->Branch("N500", &v6);
-	tree1->Branch("N1000", &v7);
-	tree1->Branch("N2000", &v8);
-	tree1->Branch("N5000", &v9);
+	tree1->Branch("N750", &v7);
+	tree1->Branch("N1000", &v8);
+	tree1->Branch("N2000", &v9);
 	
 	
-	tree2->Branch("A5", &v0);
+	tree2->Branch("A1", &v0);
 	tree2->Branch("A10", &v1);
-	tree2->Branch("A20", &v2);
+	tree2->Branch("A25", &v2);
 	tree2->Branch("A50", &v3);
 	tree2->Branch("A100", &v4);
 	tree2->Branch("A200", &v5);
 	tree2->Branch("A500", &v6);
-	tree2->Branch("A1000", &v7);
-	tree2->Branch("A2000", &v8);
-	tree2->Branch("A5000", &v9);
+	tree2->Branch("A750", &v7);
+	tree2->Branch("A1000", &v8);
+	tree2->Branch("A2000", &v9);
 	
 	
 
@@ -249,39 +249,39 @@ std::cout << "initializing branches..." << std::endl;
 	
 	std::cout <<"autof = " << NewAutoF << std::endl;
 	//TEST: give branch a pointer,
-	TBranch *n5 = 0;
-	TBranch *a5 = 0;
+	TBranch *n1;
+	TBranch *a1;
 	
-	tree1->SetBranchAddress("N5",&v0,&n5);
-	tree2->SetBranchAddress("A5",&v0,&a5);
+	tree1->SetBranchAddress("N1",&v0,&n1);
+	tree2->SetBranchAddress("A1",&v0,&a1);
 	
 	//TEST: variables
-	Int_t N5Size, A5Size;
-	Double_t N5Count, A5Count;
-	Double_t N5TotBytes, A5TotBytes;
-	Double_t N5TotZipBytes, A5TotZipBytes;
-	Double_t N5Comp, A5Comp;
+	Int_t N1Size, A1Size;
+	//Double_t N5Count, A5Count;
+	Double_t N1TotBytes, A1TotBytes;
+	Double_t N1TotZipBytes, A1TotZipBytes;
+	Double_t N1Comp, A1Comp;
 	
 	//TEST: calculations
 		//Basket Sizes
-		N5Size = n5->GetBasketSize();
-		A5Size = a5->GetBasketSize();
+		N1Size = n1->GetBasketSize();
+		A1Size = a1->GetBasketSize();
 	
 		//Basket Counts
-		N5TotBytes = n5->GetTotBytes();
-		A5TotBytes = a5->GetTotBytes();
+		N1TotBytes = n1->GetTotBytes();
+		A1TotBytes = a1->GetTotBytes();
 	
-		N5TotZipBytes = n5->GetZipBytes();
-		A5TotZipBytes = a5->GetZipBytes();
+		N1TotZipBytes = n1->GetZipBytes();
+		A1TotZipBytes = a1->GetZipBytes();
 	
 		//??Why are basket counts not working??
 	
-		N5Count = 1 + (N5TotBytes/N5Size);
-		A5Count = 1 + (A5TotBytes/A5Size);
+		//N5Count = 1 + (N5TotBytes/N5Size);
+		//A5Count = 1 + (A5TotBytes/A5Size);
 	
 		//Compression
-		N5Comp = (N5TotBytes)/(N5TotZipBytes);
-		A5Comp = (A5TotBytes)/(A5TotZipBytes);
+		N1Comp = (N1TotBytes)/(N1TotZipBytes);
+		A1Comp = (A1TotBytes)/(A1TotZipBytes);
 	
 	
 	//std::cout << "Normal Tree Scan:" << std::endl;
@@ -293,12 +293,9 @@ std::cout << "initializing branches..." << std::endl;
 	tree1->Print();
 	tree2->Print();
 	
-	std::cout << "Predicting N5, A5 Basket Counts, Sizes, and Compression:" << std::endl;
-	std::cout << "N5 Count:" << N5Count << "..." << "N5 Basket Size:" << N5Size << "..." << "N5 Compression:" << N5Comp << std::endl;
-	std::cout << "A5 Count:" << A5Count << "..." << "A5 Basket Size:" << A5Size << "..." << "A5 Compression:" << A5Comp << std::endl;
-	
-	std::cout << "or N5 Count:" << N5TotBytes/N5Size << std::endl;
-	std::cout << "or A5 Count:" << A5TotBytes/A5Size << std::endl;
+	std::cout << "Predicting N5, A5 Basket Sizes and Compression:" << std::endl;
+	std::cout << "N1 Basket Size:" << N1Size << "..." << "N1 Compression:" << N1Comp << std::endl;
+	std::cout << "A1 Basket Size:" << A1Size << "..." << "A1 Compression:" << A1Comp << std::endl;
 	
 	//draw histograms
 	cnvs->Update();
