@@ -264,17 +264,17 @@ std::cout << "initializing branches..." << std::endl;
 	std::cout <<"autof = " << NewAutoF << std::endl;
 	
 	//TEST: variables
-	Int_t N1Size, A1Size, N10Size, A10Size, N25Size, A25Size, N50Size, A50Size, N100Size, A100Size, 
+	Int_t N1Size, A1Size, N10Size, A10Size, N25Size, A25Size, N50Size, A50Size, N100Size, A100Size; 
 	Int_t N200Size, A200Size, N500Size, A500Size, N750Size, A750Size, N1000Size, A1000Size, N2000Size, A2000Size;
 	//Double_t N5Count, A5Count;
-	Double_t N1TotBytes, A1TotBytes, N10TotBytes, A10TotBytes, N25TotBytes, A25TotBytes, N50TotBytes, A50TotBytes, N100TotBytes, A100TotBytes, 
+	Double_t N1TotBytes, A1TotBytes, N10TotBytes, A10TotBytes, N25TotBytes, A25TotBytes, N50TotBytes, A50TotBytes, N100TotBytes, A100TotBytes; 
 	Double_t N200TotBytes, A200TotBytes, N500TotBytes, A500TotBytes, N750TotBytes, A750TotBytes, N1000TotBytes, A1000TotBytes, N2000TotBytes, A2000TotBytes;
 	
 	Double_t N1TotZipBytes, A1TotZipBytes, N10TotZipBytes, A10TotZipBytes, N25TotZipBytes, A25TotZipBytes, N50TotZipBytes, A50TotZipBytes;
-	Double_t N100TotZipBytes, A100TotZipBytes, N200TotZipBytes, A200TotZipBytes, N500TotZipBytes, A500TotZipBytes, N750TotZipBytes, A750TotZipBytes,
+	Double_t N100TotZipBytes, A100TotZipBytes, N200TotZipBytes, A200TotZipBytes, N500TotZipBytes, A500TotZipBytes, N750TotZipBytes, A750TotZipBytes;
 	Double_t N1000TotZipBytes, A1000TotZipBytes, N2000TotZipBytes, A2000TotZipBytes;
 	
-	Double_t N1Comp, A1Comp, N10Comp, A10Comp, N25Comp, A25Comp, N50Comp, A50Comp, N100Comp, A100Comp, N200Comp, A200Comp,
+	Double_t N1Comp, A1Comp, N10Comp, A10Comp, N25Comp, A25Comp, N50Comp, A50Comp, N100Comp, A100Comp, N200Comp, A200Comp;
 	Double_t N500Comp, A500Comp, N750Comp, A750Comp, N1000Comp, A1000Comp, N2000Comp, A2000Comp;
 	
 	//TEST: calculations
@@ -462,7 +462,7 @@ std::cout << "initializing branches..." << std::endl;
 	
 	
 	
-	cnvs2->cd(2):
+	cnvs2->cd(2);
 	histComp->Draw();
 	
 	TGraph *grNComp = new TGraph(nlabels);
