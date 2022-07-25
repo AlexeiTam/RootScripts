@@ -23,26 +23,18 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	gStyle->SetOptStat(0);
 	
 	//creating histograms
-	TH1D *h0 = new TH1D("h0","Branch0 Entries",100,-0.1,10.1);
-	TH1D *h1 = new TH1D("h1","Branch1 Entries",100,-0.1,10.1);
-	TH1D *h2 = new TH1D("h2","Branch2 Entries",100,-0.1,10.1);
-	TH1D *h3 = new TH1D("h3","Branch3 Entries",100,-0.1,10.1);
-	TH1D *h4 = new TH1D("h4","Branch4 Entries",100,-0.1,10.1);
-	TH1D *h5 = new TH1D("h5","LESS COMPRESSIBLE",100,-0.1,10.1);
-	TH1D *h6 = new TH1D("h6","MORE COMPRESSIBLE",100,-0.1,10.1);
-	TH1D *h7 = new TH1D("h7","Branch7 Entries",100,-0.1,10.1);
-	TH1D *h8 = new TH1D("h8","Branch8 Entries",100,-0.1,10.1);
-	TH1D *h9 = new TH1D("h9","Branch9 Entries",100,-0.1,10.1);
+	TH1D *h0 = new TH1D("h0","N1,A1 Entries",100,-0.1,10.1);
+	TH1D *h1 = new TH1D("h1","N10,A10 Entries",100,-0.1,10.1);
+	TH1D *h2 = new TH1D("h2","N25,A25 Entries",100,-0.1,10.1);
+	TH1D *h3 = new TH1D("h3","N50,A50 Entries",100,-0.1,10.1);
+	TH1D *h4 = new TH1D("h4","N100,A100 Entries",100,-0.1,10.1);
+	TH1D *h5 = new TH1D("h5","N200,A200 Entries",100,-0.1,10.1);
+	TH1D *h6 = new TH1D("h6","N500,A500 Entries",100,-0.1,10.1);
+	TH1D *h7 = new TH1D("h7","N750,A750 Entries",100,-0.1,10.1);
+	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",100,-0.1,10.1);
+	TH1D *h9 = new TH1D("h9","N2000,A2000 Entries",100,-0.1,10.1);
 	
-	//fill colors and axis naming
-	h5->SetFillColor(2);
-	h6->SetFillColor(3);
 	
-	h5->GetXaxis()->SetTitle("Entry Value");
-	h5->GetYaxis()->SetTitle("Events");
-	
-	h6->GetXaxis()->SetTitle("Entry Value");
-	h6->GetYaxis()->SetTitle("Events");
 	
 std::cout << "writing file and tree..." << std::endl;
 	
@@ -57,17 +49,17 @@ std::cout << "writing file and tree..." << std::endl;
 	
 std::cout << "initializing vectors..." << std::endl;
 	
-	const Int_t NEvents = 10000;	//number of events: 10,000
-	const Int_t N0 = 5;
+	const Int_t NEvents = 1000;	//number of events: 1,000
+	const Int_t N0 = 1;
 	const Int_t N1 = 10;
-	const Int_t N2 = 20;
+	const Int_t N2 = 25;
 	const Int_t N3 = 50;
 	const Int_t N4 = 100;
 	const Int_t N5 = 200;
 	const Int_t N6 = 500;
-	const Int_t N7 = 1000;
-	const Int_t N8 = 2000;
-	const Int_t N9 = 5000;
+	const Int_t N7 = 750;
+	const Int_t N8 = 1000;
+	const Int_t N9 = 2000;
 	
 	std::vector<float> v0, v1, v2, v3, v4, v5, v6, v7, v8, v9;
 	
@@ -77,28 +69,28 @@ std::cout << "initializing vectors..." << std::endl;
 	
 std::cout << "initializing branches..." << std::endl;
 	
-	tree1->Branch("N5", &v0);
+	tree1->Branch("N1", &v0);
 	tree1->Branch("N10", &v1);
-	tree1->Branch("N20", &v2);
+	tree1->Branch("N25", &v2);
 	tree1->Branch("N50", &v3);
 	tree1->Branch("N100", &v4);
 	tree1->Branch("N200", &v5);
 	tree1->Branch("N500", &v6);
-	tree1->Branch("N1000", &v7);
-	tree1->Branch("N2000", &v8);
-	tree1->Branch("N5000", &v9);
+	tree1->Branch("N750", &v7);
+	tree1->Branch("N1000", &v8);
+	tree1->Branch("N2000", &v9);
 	
 	
-	tree2->Branch("A5", &v0);
+	tree2->Branch("A1", &v0);
 	tree2->Branch("A10", &v1);
-	tree2->Branch("A20", &v2);
+	tree2->Branch("A25", &v2);
 	tree2->Branch("A50", &v3);
 	tree2->Branch("A100", &v4);
 	tree2->Branch("A200", &v5);
 	tree2->Branch("A500", &v6);
-	tree2->Branch("A1000", &v7);
-	tree2->Branch("A2000", &v8);
-	tree2->Branch("A5000", &v9);
+	tree2->Branch("A750", &v7);
+	tree2->Branch("A1000", &v8);
+	tree2->Branch("A2000", &v9);
 	
 
 	//generating random numbers and filling trees
