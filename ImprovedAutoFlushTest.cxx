@@ -76,7 +76,7 @@ std::cout << "initializing vectors..." << std::endl;
 	Int_t N10Count = 0;
 	Int_t A10Count = 0;
 	
-	Double_t N10TotBytes, A10TotBytes;
+	
 	Int_t N10Size, A10Size;
 	Int_t N10TotBytes, A10TotBytes;
 	
