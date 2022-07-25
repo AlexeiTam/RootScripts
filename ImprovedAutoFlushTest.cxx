@@ -72,6 +72,14 @@ std::cout << "initializing vectors..." << std::endl;
 	const Int_t N8 = 1000;
 	const Int_t N9 = 2000;
 	
+	//TEST2: VARIABLES
+	Int_t N10Count = 0;
+	Int_t A10Count = 0;
+	
+	Double_t N10TotBytes, A10TotBytes;
+	Int_t N10Size, A10Size;
+	Int_t N10TotBytes, A10TotBytes;
+	
 	std::vector<float> v0, v1, v2, v3, v4, v5, v6, v7, v8, v9;
 	
 	float f0, f1, f2, f3, f4, f5, f6, f7, f8, f9;
@@ -103,6 +111,11 @@ std::cout << "initializing branches..." << std::endl;
 	tree2->Branch("A2000", &v8);
 	tree2->Branch("A5000", &v9);
 	
+	//TEST2: BRANCH ADDRESS
+	TBranch *n10 = 0;
+	TBranch *a10 = 0;
+	tree1->SetBranchAddress("N10",&v1,&n10);
+	tree2->SetBranchAddress("A10",&v1,&a10);
 
 	//generating random numbers and filling trees
 	for(int i = 0; i < NEvents ; i++) {
@@ -239,6 +252,16 @@ std::cout << "initializing branches..." << std::endl;
 		tree1->Fill();
 		tree2->Fill();
 		
+		if(NewAutoF > 0 && i == NewAutoF - 1) {
+			N10TotBytes = n10->GetTotBytes();
+			N10Size = n10->GetBasketSize();
+			N10Count += 1+(Int_t)(N10TotBytes/N10Size);
+			
+			A10TotBytes = a10->GetTotBytes();
+			A10Size = a10->GetBasketSize();
+			A10Count += 1+(Int_t)(A10TotBytes/A10Size);
+		}
+		
 	}
 
 	//writing tree header and saving file
@@ -295,6 +318,8 @@ std::cout << "initializing branches..." << std::endl;
 	std::cout << "N5 Count:" << N5Count << "..." << "N5 Basket Size:" << N5Size << "..." << "N5 Compression:" << N5Comp << std::endl;
 	std::cout << "A5 Count:" << A5Count << "..." << "A5 Basket Size:" << A5Size << "..." << "A5 Compression:" << A5Comp << std::endl;
 	
+	std::cout << "A5 Count:" << A5Count << std::endl;
+	std::cout << "A5 Count:" << A5Count << std::endl;
 	//draw histograms
 	cnvs->Update();
 	
