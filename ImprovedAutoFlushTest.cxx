@@ -48,9 +48,9 @@ std::cout << "creating canvases and histograms..." << std::endl;
 const Int_t NLabels = 20; //NLabels = # of NT Branches + # of AT Branches
 const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N100","A100","N200","A200","N500","A500","N750","A750","N1000","A1000","N2000","A2000"};
 	
-	TH2D *histSize = new TH1D("histSize","Branch Sizes",20,0,2001,20,0,2560); 
+	TH2D *histSize = new TH2D("histSize","Branch Sizes",20,0,2001,20,0,2560); 
 	//"NBins = 2*Num. of Branches, xmin = Vector length of smallest branch, xmax = sim. to xmin, ymin = 0; ymax = largest possible basket size
-	TH2D *histComp = new TH1D("histComp","Branch Compression",20,0,2001,20,0,100); //same as above
+	TH2D *histComp = new TH2D("histComp","Branch Compression",20,0,2001,20,0,100); //same as above
 
 	//histSize->SetFillColor(38);
 	//histComp->SetFillColor(48);
