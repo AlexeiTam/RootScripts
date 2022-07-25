@@ -61,7 +61,8 @@ const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N1
 	histSize->GetYaxis()->SetTitle("Basket Size[kB]");
 	histComp->GetYaxis()->SetTitle("CX");
 	
-	
+	TGraph *grSize = new TGraph(NLabels);
+	TGraph *grComp = new TGraph(NLabels);
 	
 std::cout << "writing file and tree..." << std::endl;
 	
@@ -450,7 +451,6 @@ std::cout << "initializing branches..." << std::endl;
 	cnvs2->cd(1);
 	histSize->Draw();
 	
-	TGraph *grSize = new TGraph(NLabels);
 	
 		for(int i = 0; i < nlabels ; i++) {
 			grSize->AddPoint(VecSize[i]-0.5,NSize[i]);
@@ -466,7 +466,7 @@ std::cout << "initializing branches..." << std::endl;
 	cnvs2->cd(2);
 	histComp->Draw();
 	
-	TGraph *grComp = new TGraph(NLabels);
+	
 	
 		for(int i = 0; i < nlabels ; i++) {
 			grComp->AddPoint(VecSize[i]-0.5,NComp[i]);
