@@ -44,20 +44,20 @@ std::cout << "creating canvases and histograms..." << std::endl;
 	TH1D *h8 = new TH1D("h8","Branch8 Entries",NBins,-0.1,10.1);
 	TH1D *h9 = new TH1D("h9","Branch9 Entries",NBins,-0.1,10.1);
 	
-const Int_t NLabels = 20; //NLabels = # of NT Branches + # of AT Branches
-const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N100","A100","N200","A200","N500","A500","N750","A750","N1000","A1000","N2000","A2000"};
+//const Int_t NLabels = 20; //NLabels = # of NT Branches + # of AT Branches
+//const char *Labels[NLabels] = {"N1","A1","N10","A10","N25","A25","N50","A50","N100","A100","N200","A200","N500","A500","N750","A750","N1000","A1000","N2000","A2000"};
 	
-	TH1D *histSize = new TH1D("histSize","Branch Sizes",20,0,2001); //"NBins = 2*Num. of Branches, xmin = Vector length of smallest branch, xmax = sim. to xmin
-	TH1D *histComp = new TH1D("histComp","Branch Compression",20,0,2001); //same as above
+	//TH1D *histSize = new TH1D("histSize","Branch Sizes",20,0,2001); //"NBins = 2*Num. of Branches, xmin = Vector length of smallest branch, xmax = sim. to xmin
+	//TH1D *histComp = new TH1D("histComp","Branch Compression",20,0,2001); //same as above
 
-	histSize->SetFillColor(38);
-	histComp->SetFillColor(48);
+	//histSize->SetFillColor(38);
+	//histComp->SetFillColor(48);
 	
-	histSize->GetXaxis()->SetTitle("Entries per Row");
-	histComp->GetXaxis()->SetTitle("Entries per Row");
+	//histSize->GetXaxis()->SetTitle("Entries per Row");
+	//histComp->GetXaxis()->SetTitle("Entries per Row");
 	
-	histSize->GetYaxis()->SetTitle("Basket Size[kB]");
-	histComp->GetYaxis()->SetTitle("CX");
+	//histSize->GetYaxis()->SetTitle("Basket Size[kB]");
+	//histComp->GetYaxis()->SetTitle("CX");
 	
 	
 	
@@ -446,35 +446,33 @@ std::cout << "initializing branches..." << std::endl;
 	 
 	//Basket Size and Compression graphs
 	cnvs2->cd(1);
-	histSize->Draw();
+	//histSize->Draw();
 	
-	TGraph *grNSize = new TGraph(nlabels);
-	TGraph *grASize = new TGraph(nlabels);
+	TGraph *grSize = new TGraph(NLabels);
 	
 		for(int i = 0; i < nlabels ; i++) {
-			grNSize->SetPoint(i+1,VecSize[i]-0.5,NSize[i]);
-			grASize->SetPoint(i+1,VecSize[i]+0.5,ASize[i]);
+			grSize->SetPoint(i+1,VecSize[i]-0.5,NSize[i]);
+			grSize->SetPoint(i+1,VecSize[i]+0.5,ASize[i]);
 		}
 	
-	grNSize->Draw("sameAB");
-	grASize->Draw("sameAB");
+		grSize->Draw("AB");
+	
 			 
 	
 	
 	
 	cnvs2->cd(2);
-	histComp->Draw();
+	//histComp->Draw();
 	
-	TGraph *grNComp = new TGraph(nlabels);
-	TGraph *grAComp = new TGraph(nlabels);
+	TGraph *grComp = new TGraph(NLabels);
 	
 		for(int i = 0; i < nlabels ; i++) {
-			grNComp->SetPoint(i+1,VecSize[i]-0.5,NComp[i]);
-			grAComp->SetPoint(i+1,VecSize[i]+0.5,AComp[i]);
+			grComp->SetPoint(i+1,VecSize[i]-0.5,NComp[i]);
+			grComp->SetPoint(i+1,VecSize[i]+0.5,AComp[i]);
 		}
 	
-	grNComp->Draw("sameAB");
-	grAComp->Draw("sameAB");
+	grNComp->Draw("AB");
+	
 	
 	
 	//draw histograms
