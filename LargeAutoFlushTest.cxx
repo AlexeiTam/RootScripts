@@ -49,7 +49,7 @@ std::cout << "writing file and tree..." << std::endl;
 	
 std::cout << "initializing vectors..." << std::endl;
 	
-	const Int_t NEvents = 1000;	//number of events: 1,000
+	const Int_t NEvents = 5000;	//number of events: 1,000
 	const Int_t N0 = 1;
 	const Int_t N1 = 10;
 	const Int_t N2 = 25;
