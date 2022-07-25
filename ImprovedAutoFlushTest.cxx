@@ -453,8 +453,8 @@ std::cout << "initializing branches..." << std::endl;
 	TGraph *grSize = new TGraph(NLabels);
 	
 		for(int i = 0; i < nlabels ; i++) {
-			grSize->SetPoint(i+1,VecSize[i]-0.5,NSize[i]);
-			grSize->SetPoint(i+1,VecSize[i]+0.5,ASize[i]);
+			grSize->AddPoint(i+1,VecSize[i]-0.5,NSize[i]);
+			grSize->AddPoint(i+1,VecSize[i]+0.5,ASize[i]);
 		}
 		
 		grSize->Draw("sameB");
@@ -469,8 +469,8 @@ std::cout << "initializing branches..." << std::endl;
 	TGraph *grComp = new TGraph(NLabels);
 	
 		for(int i = 0; i < nlabels ; i++) {
-			grComp->SetPoint(i+1,VecSize[i]-0.5,NComp[i]);
-			grComp->SetPoint(i+1,VecSize[i]+0.5,AComp[i]);
+			grComp->AddPoint(i+1,VecSize[i]-0.5,NComp[i]);
+			grComp->AddPoint(i+1,VecSize[i]+0.5,AComp[i]);
 		}
 	
 	grComp->Draw("sameB");
