@@ -18,7 +18,7 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//create file and tree
 	
 	//creating canvas
-	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 800, 500);
+	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 1600, 1000);
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
@@ -34,6 +34,36 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",100,-0.1,10.1);
 	TH1D *h9 = new TH1D("h9","N2000,A2000 Entries",100,-0.1,10.1);
 	
+	//add axes titles
+	h0->GetXaxis()->SetTitle("Entry Value");
+	h0->GetXaxis()->SetTitle("Events");
+	
+	h1->GetXaxis()->SetTitle("Entry Value");
+	h1->GetXaxis()->SetTitle("Events");
+	
+	h2->GetXaxis()->SetTitle("Entry Value");
+	h2->GetXaxis()->SetTitle("Events");
+	
+	h3->GetXaxis()->SetTitle("Entry Value");
+	h3->GetXaxis()->SetTitle("Events");
+	
+	h4->GetXaxis()->SetTitle("Entry Value");
+	h4->GetXaxis()->SetTitle("Events");
+	
+	h5->GetXaxis()->SetTitle("Entry Value");
+	h5->GetXaxis()->SetTitle("Events");
+	
+	h6->GetXaxis()->SetTitle("Entry Value");
+	h6->GetXaxis()->SetTitle("Events");
+	
+	h7->GetXaxis()->SetTitle("Entry Value");
+	h7->GetXaxis()->SetTitle("Events");
+	
+	h8->GetXaxis()->SetTitle("Entry Value");
+	h8->GetXaxis()->SetTitle("Events");
+	
+	h9->GetXaxis()->SetTitle("Entry Value");
+	h9->GetXaxis()->SetTitle("Events");
 	
 	
 std::cout << "writing file and tree..." << std::endl;
@@ -49,7 +79,9 @@ std::cout << "writing file and tree..." << std::endl;
 	
 std::cout << "initializing vectors..." << std::endl;
 	
-	const Int_t NEvents = 10000;	//number of events: 10,000
+	const Int_t NEvents = 1000;	//number of events: 1,000
+	
+	
 	const Int_t N0 = 1;
 	const Int_t N1 = 10;
 	const Int_t N2 = 25;
