@@ -34,37 +34,18 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",100,-0.1,10.1);
 	TH1D *h9 = new TH1D("h9","N2000,A2000 Entries",100,-0.1,10.1);
 	
-	//add axes titles
-	h0->GetXaxis()->SetTitle("Entry Value");
-	h0->GetXaxis()->SetTitle("Events");
-	
-	h1->GetXaxis()->SetTitle("Entry Value");
-	h1->GetXaxis()->SetTitle("Events");
-	
-	h2->GetXaxis()->SetTitle("Entry Value");
-	h2->GetXaxis()->SetTitle("Events");
-	
-	h3->GetXaxis()->SetTitle("Entry Value");
-	h3->GetXaxis()->SetTitle("Events");
-	
-	h4->GetXaxis()->SetTitle("Entry Value");
-	h4->GetXaxis()->SetTitle("Events");
-	
-	h5->GetXaxis()->SetTitle("Entry Value");
-	h5->GetXaxis()->SetTitle("Events");
-	
-	h6->GetXaxis()->SetTitle("Entry Value");
-	h6->GetXaxis()->SetTitle("Events");
-	
-	h7->GetXaxis()->SetTitle("Entry Value");
-	h7->GetXaxis()->SetTitle("Events");
-	
-	h8->GetXaxis()->SetTitle("Entry Value");
-	h8->GetXaxis()->SetTitle("Events");
-	
-	h9->GetXaxis()->SetTitle("Entry Value");
-	h9->GetXaxis()->SetTitle("Events");
-	
+	//add TLegend later: X axis = Entry Value, Y axis = Events
+	//add fill colors
+	h0->SetFillColor(0);
+	h1->SetFillColor(1);
+	h2->SetFillColor(2);
+	h3->SetFillColor(3);
+	h4->SetFillColor(4);
+	h5->SetFillColor(5);
+	h6->SetFillColor(6);
+	h7->SetFillColor(7);
+	h8->SetFillColor(8);
+	h9->SetFillColor(9);
 	
 std::cout << "writing file and tree..." << std::endl;
 	
