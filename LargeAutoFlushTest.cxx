@@ -15,6 +15,10 @@
 void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//GOAL: create one normal tree, and one with a given AutoFlush setting, then compare TTree::Print() of both
 	//GOAL2: scale down events, more dramatically change NewAutoF
+	
+			//ISSUE1:  need TLegend to state X axis and Y axis
+			//ISSUE2:  need to fix bin Edges and bin numbers, b/c fill color not very visible
+	
 	//create file and tree
 	
 	//creating canvas
