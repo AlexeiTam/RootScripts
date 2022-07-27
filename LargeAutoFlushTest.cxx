@@ -29,12 +29,12 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//creating histograms
 	TH1D *h0 = new TH1D("h0","N1,A1 Entries",100,-0.1,10.1);	//all histograms originally had same binCount,binEdges as h0
 	TH1D *h1 = new TH1D("h1","N10,A10 Entries",100,-0.1,5.1);
-	TH1D *h2 = new TH1D("h2","N25,A25 Entries",100,3.1,4.1);
-	TH1D *h3 = new TH1D("h3","N50,A50 Entries",100,1.9,6.1);
+	TH1D *h2 = new TH1D("h2","N25,A25 Entries",50,0,2.1);
+	TH1D *h3 = new TH1D("h3","N50,A50 Entries",100,1.9,3.1);
 	TH1D *h4 = new TH1D("h4","N100,A100 Entries",50,-0.1,10.1);
 	TH1D *h5 = new TH1D("h5","N200,A200 Entries",100,-0.1,10.1);
 	TH1D *h6 = new TH1D("h6","N500,A500 Entries",50,-0.1,10.1);
-	TH1D *h7 = new TH1D("h7","N750,A750 Entries",100,-0.1,7.6);
+	TH1D *h7 = new TH1D("h7","N750,A750 Entries",50,-0.1,3);
 	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",100,-0.1,10.1);
 	TH1D *h9 = new TH1D("h9","N2000,A2000 Entries",50,-0.1,10.1);
 	
@@ -157,7 +157,7 @@ std::cout << "initializing branches..." << std::endl;
 		f2 = gRandom->Rndm();
 			if(f2 < 0) continue;
 			if(f2 > 0) {
-			f2 = 4;
+			f2 = 1;
 			}
 		h2->Fill(f2);
 		v2.emplace_back(f2);
@@ -168,7 +168,7 @@ std::cout << "initializing branches..." << std::endl;
 			
 		f3 = gRandom->Rndm();
 			if(f3 > 0.8) {
-			f3 = 6;
+			f3 = 3;
 			}
 			if(f3 <= 0.8) {
 			f3 = 2;
@@ -211,10 +211,10 @@ std::cout << "initializing branches..." << std::endl;
 			f7 = 0;
 			}
 			if(f7 > 0.4 && f7 <= 0.7) {
-			f7 = 5.5;
+			f7 = 1.5;
 			}
 			if(f7 > 0.7) {
-			f7 = 7.5;
+			f7 = 2.5;
 			}
 		h7->Fill(f7);
 		v7.emplace_back(f7);
