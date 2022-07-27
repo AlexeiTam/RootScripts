@@ -30,12 +30,12 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	TH1D *h0 = new TH1D("h0","N1,A1 Entries",100,-0.1,10.1);	//all histograms originally had same binCount,binEdges as h0
 	TH1D *h1 = new TH1D("h1","N10,A10 Entries",100,-0.1,5.1);
 	TH1D *h2 = new TH1D("h2","N25,A25 Entries",50,0,2.1);
-	TH1D *h3 = new TH1D("h3","N50,A50 Entries",100,1.9,3.1);
+	TH1D *h3 = new TH1D("h3","N50,A50 Entries",50,1.9,3.1);
 	TH1D *h4 = new TH1D("h4","N100,A100 Entries",50,-0.1,10.1);
 	TH1D *h5 = new TH1D("h5","N200,A200 Entries",100,-0.1,10.1);
 	TH1D *h6 = new TH1D("h6","N500,A500 Entries",50,-0.1,10.1);
 	TH1D *h7 = new TH1D("h7","N750,A750 Entries",50,-0.1,3);
-	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",100,-0.1,10.1);
+	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",50,-1.1,1.1);
 	TH1D *h9 = new TH1D("h9","N2000,A2000 Entries",50,-0.1,10.1);
 	
 	//add TLegend later: X axis = Entry Value, Y axis = Events
