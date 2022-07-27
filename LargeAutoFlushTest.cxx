@@ -66,7 +66,7 @@ std::cout << "initializing vectors..." << std::endl;
 	
 	const Int_t NEvents = 10000;	//number of events: 10,000
 	
-	const Int_t NEntries[9] = {1,10,25,50,100,200,500,750,1000,2000};
+	const Int_t NEntries[10] = {1,10,25,50,100,200,500,750,1000,2000};
 	
 	const Int_t N0 = 1;
 	const Int_t N1 = 10;
