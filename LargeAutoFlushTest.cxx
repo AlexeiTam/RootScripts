@@ -76,7 +76,7 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
   	h0->GetYaxis()->SetLabelSize(0.03);
 	
   	h1->GetYaxis()->SetTitleSize(0.05);
-  	h1->GetYaxis()->SetTitleOffset(1.6);
+  	h1->GetYaxis()->SetTitleOffset(1.2);
   	h1->GetYaxis()->SetLabelSize(0.03);
 	
   	h0->GetYaxis()->SetTitleSize(0.05);
