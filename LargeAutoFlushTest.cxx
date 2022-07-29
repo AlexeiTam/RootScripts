@@ -22,7 +22,7 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//create file and tree
 	
 	//creating canvas
-	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 2400, 2000);
+	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 100, 100, 2400, 2000);
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
