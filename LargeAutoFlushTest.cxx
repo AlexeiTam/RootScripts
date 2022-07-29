@@ -40,35 +40,35 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	
 	//add TLegend later: X axis = Entry Value, Y axis = Events
 	//add fill colors
-	h0->GetXaxis()->SetTitle("Entry Value");
-	h0->GetYaxis()->SetTitle("Number of Entries");
+	//h0->GetXaxis()->SetTitle("Entry Value");
+	//h0->GetYaxis()->SetTitle("Number of Entries");
 	
-	h1->GetXaxis()->SetTitle("Entry Value");
-	h1->GetYaxis()->SetTitle("Number of Entries");
+	//h1->GetXaxis()->SetTitle("Entry Value");
+	//h1->GetYaxis()->SetTitle("Number of Entries");
 	
-	h2->GetXaxis()->SetTitle("Entry Value");
-	h2->GetYaxis()->SetTitle("Number of Entries");
+	//h2->GetXaxis()->SetTitle("Entry Value");
+	//h2->GetYaxis()->SetTitle("Number of Entries");
 	
-	h3->GetXaxis()->SetTitle("Entry Value");
-	h3->GetYaxis()->SetTitle("Number of Entries");
+	//h3->GetXaxis()->SetTitle("Entry Value");
+	//h3->GetYaxis()->SetTitle("Number of Entries");
 	
-	h4->GetXaxis()->SetTitle("Entry Value");
-	h4->GetYaxis()->SetTitle("Number of Entries");
+	//h4->GetXaxis()->SetTitle("Entry Value");
+	//h4->GetYaxis()->SetTitle("Number of Entries");
 	
-	h5->GetXaxis()->SetTitle("Entry Value");
-	h5->GetYaxis()->SetTitle("Number of Entries");
+	//h5->GetXaxis()->SetTitle("Entry Value");
+	//h5->GetYaxis()->SetTitle("Number of Entries");
 	
-	h6->GetXaxis()->SetTitle("Entry Value");
-	h6->GetYaxis()->SetTitle("Number of Entries");
+	//h6->GetXaxis()->SetTitle("Entry Value");
+	//h6->GetYaxis()->SetTitle("Number of Entries");
 	
-	h7->GetXaxis()->SetTitle("Entry Value");
-	h7->GetYaxis()->SetTitle("Number of Entries");
+	//h7->GetXaxis()->SetTitle("Entry Value");
+	//h7->GetYaxis()->SetTitle("Number of Entries");
 	
-	h8->GetXaxis()->SetTitle("Entry Value");
-	h8->GetYaxis()->SetTitle("Number of Entries");
+	//h8->GetXaxis()->SetTitle("Entry Value");
+	//h8->GetYaxis()->SetTitle("Number of Entries");
 	
-	h9->GetXaxis()->SetTitle("Entry Value");
-	h9->GetYaxis()->SetTitle("Number of Entries");
+	//h9->GetXaxis()->SetTitle("Entry Value");
+	//h9->GetYaxis()->SetTitle("Number of Entries");
 	
 	
 	h0->SetFillColor(0);
