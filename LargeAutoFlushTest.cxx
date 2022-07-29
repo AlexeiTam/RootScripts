@@ -22,7 +22,7 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	//create file and tree
 	
 	//creating canvas
-	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 1600, 1000);
+	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 10, 10, 2400, 1500);
 	cnvs->Divide(5,2);
 	gStyle->SetOptStat(0);
 	
@@ -82,7 +82,6 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	h8->SetFillColor(8);
 	h9->SetFillColor(9);
 	
-	h0->SetLineColor(0);
 	h1->SetLineColor(1);
 	h2->SetLineColor(2);
 	h3->SetLineColor(3);
