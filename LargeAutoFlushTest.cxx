@@ -38,44 +38,82 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",50,-1.1,1.1);
 	TH1D *h9 = new TH1D("h9","N2000,A2000 Entries",50,-0.1,10.1);
 	
-	//add TLegend later: X axis = Entry Value, Y axis = Events
-	//add fill colors
-	//h0->GetXaxis()->SetTitle("Entry Value");
-	//h0->GetYaxis()->SetTitle("Number of Entries");
+	//add axis labels
 	
-	h1->GetYaxis()->SetTitle("YLabel"); 
+	h0->GetXaxis()->SetTitle("Entry Value");
+	h0->GetYaxis()->SetTitle("Number of Entries");
+	
+	h1->GetXaxis()->SetTitle("Entry Value");
+	h1->GetYaxis()->SetTitle("Number of Entries");
+	
+	h2->GetXaxis()->SetTitle("Entry Value");
+	h2->GetYaxis()->SetTitle("Number of Entries");
+	
+	h3->GetXaxis()->SetTitle("Entry Value");
+	h3->GetYaxis()->SetTitle("Number of Entries");
+	
+	h4->GetXaxis()->SetTitle("Entry Value");
+	h4->GetYaxis()->SetTitle("Number of Entries");
+	
+	h5->GetXaxis()->SetTitle("Entry Value");
+	h5->GetYaxis()->SetTitle("Number of Entries");
+	
+	h6->GetXaxis()->SetTitle("Entry Value");
+	h6->GetYaxis()->SetTitle("Number of Entries");
+	
+	h7->GetXaxis()->SetTitle("Entry Value");
+	h7->GetYaxis()->SetTitle("Number of Entries");
+	
+	h8->GetXaxis()->SetTitle("Entry Value");
+	h8->GetYaxis()->SetTitle("Number of Entries");
+	
+	h9->GetXaxis()->SetTitle("Entry Value");
+	h9->GetYaxis()->SetTitle("Number of Entries");
+	
+	//adjust labels
+  	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
+	
   	h1->GetYaxis()->SetTitleSize(0.05);
   	h1->GetYaxis()->SetTitleOffset(1.6);
   	h1->GetYaxis()->SetLabelSize(0.03);
 	
-	//h1->GetXaxis()->SetTitle("Entry Value");
-	//h1->GetYaxis()->SetTitle("Number of Entries");
+  	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
 	
-	//h2->GetXaxis()->SetTitle("Entry Value");
-	//h2->GetYaxis()->SetTitle("Number of Entries");
+	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
 	
-	//h3->GetXaxis()->SetTitle("Entry Value");
-	//h3->GetYaxis()->SetTitle("Number of Entries");
+	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
 	
-	//h4->GetXaxis()->SetTitle("Entry Value");
-	//h4->GetYaxis()->SetTitle("Number of Entries");
+	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
 	
-	//h5->GetXaxis()->SetTitle("Entry Value");
-	//h5->GetYaxis()->SetTitle("Number of Entries");
+	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
 	
-	//h6->GetXaxis()->SetTitle("Entry Value");
-	//h6->GetYaxis()->SetTitle("Number of Entries");
+	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
 	
-	//h7->GetXaxis()->SetTitle("Entry Value");
-	//h7->GetYaxis()->SetTitle("Number of Entries");
+	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
 	
-	//h8->GetXaxis()->SetTitle("Entry Value");
-	//h8->GetYaxis()->SetTitle("Number of Entries");
-	
-	//h9->GetXaxis()->SetTitle("Entry Value");
-	//h9->GetYaxis()->SetTitle("Number of Entries");
+	h0->GetYaxis()->SetTitleSize(0.05);
+  	h0->GetYaxis()->SetTitleOffset(1.2);
+  	h0->GetYaxis()->SetLabelSize(0.03);
 	
 	
+	
+	//add fill, line colors
 	h0->SetFillColor(0);
 	h1->SetFillColor(1);
 	h2->SetFillColor(2);
