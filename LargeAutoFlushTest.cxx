@@ -23,31 +23,31 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	
 	//creating canvas
 	TCanvas *cnvs = new TCanvas("cnvs","Tree Display", 100, 100, 2400, 2000);
-	cnvs->Divide(5,2);
+	cnvs->Divide(3,1);
 	gStyle->SetOptStat(0);
 	
 	//creating histograms
 	TH1D *h0 = new TH1D("h0","N1,A1 Entries",100,-0.1,10.1);	//all histograms originally had same binCount,binEdges as h0
 	TH1D *h1 = new TH1D("h1","N10,A10 Entries",100,-0.1,5.1);
-	TH1D *h2 = new TH1D("h2","N25,A25 Entries",50,0,2.1);
+	TH1D *h2 = new TH1D("h2","Branch2 Elements",50,0,2.1);
 	TH1D *h3 = new TH1D("h3","N50,A50 Entries",50,1.9,3.1);
 	TH1D *h4 = new TH1D("h4","N100,A100 Entries",50,-0.1,10.1);
-	TH1D *h5 = new TH1D("h5","N200,A200 Entries",100,-0.1,10.1);
+	TH1D *h5 = new TH1D("h5","Branch5 Elements",100,-0.1,10.1);
 	TH1D *h6 = new TH1D("h6","N500,A500 Entries",50,-0.1,10.1);
 	TH1D *h7 = new TH1D("h7","N750,A750 Entries",50,-0.1,3);
 	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",50,-1.1,1.1);
-	TH1D *h9 = new TH1D("h9","N2000,A2000 Entries",50,-0.1,10.1);
+	TH1D *h9 = new TH1D("h9","Branch5 Elements",50,-0.1,10.1);
 	
 	//add axis labels
 	
-	h0->GetXaxis()->SetTitle("Entry Value");
-	h0->GetYaxis()->SetTitle("Number of Entries");
+	h0->GetXaxis()->SetTitle("Element Value");
+	h0->GetYaxis()->SetTitle("Number of Elements");
 	
 	h1->GetXaxis()->SetTitle("Entry Value");
 	h1->GetYaxis()->SetTitle("Number of Entries");
 	
-	h2->GetXaxis()->SetTitle("Entry Value");
-	h2->GetYaxis()->SetTitle("Number of Entries");
+	h2->GetXaxis()->SetTitle("Element Value");
+	h2->GetYaxis()->SetTitle("Number of Elements");
 	
 	h3->GetXaxis()->SetTitle("Entry Value");
 	h3->GetYaxis()->SetTitle("Number of Entries");
@@ -55,8 +55,8 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	h4->GetXaxis()->SetTitle("Entry Value");
 	h4->GetYaxis()->SetTitle("Number of Entries");
 	
-	h5->GetXaxis()->SetTitle("Entry Value");
-	h5->GetYaxis()->SetTitle("Number of Entries");
+	h5->GetXaxis()->SetTitle("Elements Value");
+	h5->GetYaxis()->SetTitle("Number of Elements");
 	
 	h6->GetXaxis()->SetTitle("Entry Value");
 	h6->GetYaxis()->SetTitle("Number of Entries");
@@ -67,8 +67,8 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	h8->GetXaxis()->SetTitle("Entry Value");
 	h8->GetYaxis()->SetTitle("Number of Entries");
 	
-	h9->GetXaxis()->SetTitle("Entry Value");
-	h9->GetYaxis()->SetTitle("Number of Entries");
+	h9->GetXaxis()->SetTitle("Element Value");
+	h9->GetYaxis()->SetTitle("Number of Elements");
 	
 	//adjust labels
   	h0->GetYaxis()->SetTitleSize(0.05);
@@ -350,34 +350,34 @@ std::cout << "initializing branches..." << std::endl;
 	//draw histograms
 	cnvs->Update();
 	
+	//cnvs->cd(1);
+	//h0->Draw();
+	
+	//cnvs->cd(2);
+	//h1->Draw();
+	
 	cnvs->cd(1);
-	h0->Draw();
-	
-	cnvs->cd(2);
-	h1->Draw();
-	
-	cnvs->cd(3);
 	h2->Draw();
 	
-	cnvs->cd(4);
-	h3->Draw();
+	//cnvs->cd(4);
+	//h3->Draw();
 	
-	cnvs->cd(5);
-	h4->Draw();
+	//cnvs->cd(5);
+	//h4->Draw();
 	
-	cnvs->cd(6);
+	cnvs->cd(2);
 	h5->Draw();
 	
-	cnvs->cd(7);
-	h6->Draw();
+	//cnvs->cd(7);
+	//h6->Draw();
 	
-	cnvs->cd(8);
-	h7->Draw();
+	//cnvs->cd(8);
+	//h7->Draw();
 	
-	cnvs->cd(9);
-	h8->Draw();
+	//cnvs->cd(9);
+	//h8->Draw();
 	
-	cnvs->cd(10);
+	cnvs->cd(3);
 	h9->Draw();
 
 
