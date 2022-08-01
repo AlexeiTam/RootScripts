@@ -36,7 +36,7 @@ void LargeAutoFlushTest(Long64_t NewAutoF = -30000000) {
 	TH1D *h6 = new TH1D("h6","N500,A500 Entries",50,-0.1,10.1);
 	TH1D *h7 = new TH1D("h7","N750,A750 Entries",50,-0.1,3);
 	TH1D *h8 = new TH1D("h8","N1000,A1000 Entries",50,-1.1,1.1);
-	TH1D *h9 = new TH1D("h9","Branch5 Elements",50,-0.1,10.1);
+	TH1D *h9 = new TH1D("h9","Branch9 Elements",50,-0.1,10.1);
 	
 	//add axis labels
 	
